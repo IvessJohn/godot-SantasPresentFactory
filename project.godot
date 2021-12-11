@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://source/actors/ActorBase.gd"
+}, {
+"base": "YSort",
+"class": "GameBoard",
+"language": "GDScript",
+"path": "res://source/GameBoard.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://source/actors/Player.gd"
+} ]
+_global_script_class_icons={
+"Actor": "",
+"GameBoard": "",
+"Player": ""
+}
+
 [application]
 
 config/name="Santa's Present Factory"

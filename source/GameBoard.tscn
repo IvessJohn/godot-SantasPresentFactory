@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://source/GameBoard.gd" type="Script" id=1]
+
+[node name="GameBoard" type="YSort"]
+script = ExtResource( 1 )
+grid = null
