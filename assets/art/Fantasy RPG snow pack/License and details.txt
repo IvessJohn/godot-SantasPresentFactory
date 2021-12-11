@@ -1,0 +1,30 @@
+FANTASY RPG - Snow expansion pack (by Franuka) v1.2
+-------------------------
+Thank you for purchasing this asset pack! This is an expansion to the original Fantasy RPG asset pack (https://franuka.itch.io/rpg-asset-pack)
+It was created from scratch, and licensed under the Creative commons BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+Feel free to use it on any commercial or non-commercial game, just remember to add a link to my itch page and/or Twitter, it helps a lot :)
+---
+Included are all the tiles and spritesheets for each asset, in .png format, transparent background, at 100% and 200% sizes.
+You should be able to recreate anything you see on the example images.
+The tiles are mostly 16x16px (100%) or 32x32px (200%)
+---
+All art was made by me. If you need anything else, I'm open to commissions or long-term jobs. Ask for details.
+Contact: franukai@gmail.com
+Instagram: https://www.instagram.com/franuka.art/
+Twitter: https://twitter.com/franuka_art
+Other projects and games: https://franuka.itch.io/
+
+If you like what I do, consider supporting me by donating, sharing, or sending your feedback.
+Have a good time making your games :)
+
+---
+
+CHANGELOG
+----------
+v1.1: Added colour variations to every monster and NPC
+v1.2: New christmas decoration (Lights, lamps, candles, bell, sock, wreath, garlands, mistletoe)
+
+MORE ASSETS:
+--------------
+//RPG christmas battlers: https://franuka.itch.io/rpg-christmas-battler-pack
+//Free RPG townsfolk pack: https://franuka.itch.io/rpg-townsfolk-pack
