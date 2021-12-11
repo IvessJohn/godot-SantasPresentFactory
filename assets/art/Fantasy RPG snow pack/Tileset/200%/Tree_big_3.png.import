@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Tree_big_3.png-d0ffbb3f28b0fc8f3739b4583d5e2191.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/art/Fantasy RPG snow pack/Tileset/200%/Tree_big_3.png"
+dest_files=[ "res://.import/Tree_big_3.png-d0ffbb3f28b0fc8f3739b4583d5e2191.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
