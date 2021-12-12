@@ -3,14 +3,18 @@ class_name GameBoard
 
 const DIRECTIONS = [Vector2.LEFT, Vector2.UP, Vector2.RIGHT, Vector2.DOWN]
 
-export(Resource) var grid: Resource = preload("res://source/resources/Grid.gd")
+export(Resource) var grid: Resource = preload("res://source/resources/Grid.tres")
+export(Resource) var props_res: Resource  = preload("res://source/resources/PropIDResource.tres")
 
 # Each key-value pair represents an object. The key is the position, the value is the reference to
 # the object
 var _objects := {}
 
+var _active_tile = null
 
 onready var _placement_overlay
+onready var tilemap := $TileMap
+onready var objects := $Objects
 
 
 func get_unoccupied_cells() -> Array:
@@ -40,3 +44,30 @@ func _flood_fill(category: String) -> Array:
 			pass
 	
 	return cells
+
+func place_object(cell: Vector2, prop_id: int):
+	# Place tile
+	# tilemap.set_cellv(...)
+	# tilemap.update_bitmask_region()
+	var object_scene: PackedScene = props_res.get_prop(prop_id)
+	if object_scene:
+		# First, check if there was any other object placed and if so, remove it
+		if _objects.has(cell):
+			_objects[cell].queue_free()
+			_objects.erase(cell)
+		
+		var object_instance: Node2D = object_scene.instance()
+		objects.add_child(object_instance)
+		print((cell))
+		var object_pos: Vector2 = grid.calculate_map_position(cell)
+		object_instance.global_position = object_pos
+#		object_instance.global_position = Vector2(24,24)
+		_objects[cell] = object_instance
+
+
+func _on_Cursor_moved(new_cell):
+	pass
+
+func _on_Cursor_accept_pressed(cell):
+	place_object(cell, props_res.PROP_ENUM.PRESENT)
+

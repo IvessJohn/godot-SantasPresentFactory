@@ -1,3 +1,22 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://source/UI/Cursor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://source/scenery/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://source/GameBoard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://source/resources/Grid.tres" type="Resource" id=4]
 
 [node name="TestLevel" type="Node2D"]
+
+[node name="GameBoard" parent="." instance=ExtResource( 3 )]
+grid = ExtResource( 4 )
+
+[node name="TileMap" parent="GameBoard" instance=ExtResource( 2 )]
+
+[node name="Cursor" parent="GameBoard" instance=ExtResource( 1 )]
+visible = true
+is_active = true
+
+[node name="Objects" type="YSort" parent="GameBoard"]
+
+[connection signal="accept_pressed" from="GameBoard/Cursor" to="GameBoard" method="_on_Cursor_accept_pressed"]
+[connection signal="moved" from="GameBoard/Cursor" to="GameBoard" method="_on_Cursor_moved"]

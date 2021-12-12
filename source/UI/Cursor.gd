@@ -27,9 +27,9 @@ func _unhandled_input(event):
 		if event is InputEventMouseMotion:
 			self.cell = grid.calculate_grid_position(event.position)
 		# Elif we have already been over the wanted cell and we press it
-		elif event.is_action_pressed("click") or \
-				event.is_action("click") or \
+		elif event.is_action_pressed("place_tile") or \
 				event.is_action_pressed("ui_accept"):
+#				event.is_action("place_tile") or \
 			emit_signal("accept_pressed", cell)
 			get_tree().set_input_as_handled()
 		
@@ -56,7 +56,7 @@ func _unhandled_input(event):
 
 # Use _draw() to draw a rectangle around the selected cell
 func _draw():
-	draw_rect(Rect2(-grid.cell_size * 0.5, grid.cell_size), Color.springgreen, false, 2.5)
+	draw_rect(Rect2(-grid.cell_size * 0.5, grid.cell_size), Color.springgreen, false, 1.5)
 
 func set_cell(value: Vector2):
 	var new_cell: Vector2 = grid.clamp_grid_pos(value)

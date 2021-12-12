@@ -28,17 +28,36 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://source/actors/Player.gd"
+}, {
+"base": "Resource",
+"class": "PropIDResource",
+"language": "GDScript",
+"path": "res://source/resources/PropIDResource.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://source/scripts/StateMachine.gd"
+}, {
+"base": "Actor",
+"class": "WanderingNPC",
+"language": "GDScript",
+"path": "res://source/actors/WanderingNPC.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
 "Cursor": "",
 "GameBoard": "",
-"Player": ""
+"Player": "",
+"PropIDResource": "",
+"StateMachine": "",
+"WanderingNPC": ""
 }
 
 [application]
 
 config/name="Santa's Present Factory"
+run/main_scene="res://source/level/TestLevel.tscn"
 config/icon="res://icon.png"
 
 [display]
