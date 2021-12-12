@@ -34,6 +34,9 @@ func _flood_fill(category: String) -> Array:
 	var cells := []
 	
 	match category:
-		pass
+		"unoccupied":
+			pass
+		"occupied":
+			pass
 	
 	return cells
