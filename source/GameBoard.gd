@@ -64,6 +64,12 @@ func place_object(cell: Vector2, prop_id: int):
 #		object_instance.global_position = Vector2(24,24)
 		_objects[cell] = object_instance
 
+func remove_object(cell: Vector2):
+	if _objects.has(cell):
+		var removed_object: Node2D = _objects[cell]
+		removed_object.queue_free()
+		_objects.erase(cell)
+
 
 func _on_Cursor_moved(new_cell):
 	pass
@@ -71,3 +77,5 @@ func _on_Cursor_moved(new_cell):
 func _on_Cursor_accept_pressed(cell):
 	place_object(cell, props_res.PROP_ENUM.PRESENT)
 
+func _on_Cursor_accept_removed(cell):
+	remove_object(cell)

@@ -19,4 +19,5 @@ is_active = true
 [node name="Objects" type="YSort" parent="GameBoard"]
 
 [connection signal="accept_pressed" from="GameBoard/Cursor" to="GameBoard" method="_on_Cursor_accept_pressed"]
+[connection signal="accept_removed" from="GameBoard/Cursor" to="GameBoard" method="_on_Cursor_accept_removed"]
 [connection signal="moved" from="GameBoard/Cursor" to="GameBoard" method="_on_Cursor_moved"]

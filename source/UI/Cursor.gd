@@ -4,6 +4,7 @@ class_name Cursor
 
 
 signal accept_pressed(cell)
+signal accept_removed(cell)
 signal moved(new_cell)
 
 export var grid: Resource = preload("res://source/resources/Grid.tres")
@@ -31,6 +32,11 @@ func _unhandled_input(event):
 				event.is_action_pressed("ui_accept"):
 #				event.is_action("place_tile") or \
 			emit_signal("accept_pressed", cell)
+			get_tree().set_input_as_handled()
+		
+		# Here's the code for tile removal
+		if event.is_action_pressed("remove_tile"):
+			emit_signal("accept_removed", cell)
 			get_tree().set_input_as_handled()
 		
 		#
