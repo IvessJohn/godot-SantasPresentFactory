@@ -3,4 +3,4 @@
 [ext_resource path="res://source/UI/ui resources/Panel9Frame.tres" type="StyleBox" id=1]
 
 [resource]
-Panel/styles/Panel9Patch = ExtResource( 1 )
+Panel/styles/panel = ExtResource( 1 )
