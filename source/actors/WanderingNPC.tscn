@@ -8,7 +8,9 @@
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="WanderingNPC" instance=ExtResource( 1 )]
+position = Vector2( 94, 42 )
 script = ExtResource( 3 )
+SPEED = 20
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
@@ -20,3 +22,14 @@ parameters/playback = SubResource( 1 )
 
 [node name="WanderingNPCStateMachine" type="Node" parent="." index="4"]
 script = ExtResource( 4 )
+
+[node name="WanderRayCast2D" type="RayCast2D" parent="." index="5"]
+enabled = true
+cast_to = Vector2( 16, 0 )
+collision_mask = 3
+
+[node name="WanderTimer" type="Timer" parent="." index="6"]
+one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="." index="7"]
+one_shot = true
