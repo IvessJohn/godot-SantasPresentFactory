@@ -95,7 +95,7 @@ window/stretch/aspect="keep"
 
 [gui]
 
-theme/custom="res://source/UI/ui resources/defaultTheme.tres"
+theme/custom="res://source/UI/ui_resources/defaultTheme.tres"
 
 [importer_defaults]
 

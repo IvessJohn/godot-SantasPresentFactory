@@ -10,7 +10,7 @@ export(Resource) var props_res: Resource  = preload("res://source/resources/Prop
 # the object
 var _objects := {}
 
-var _active_tile = null
+var _selected_tile: Resource = null setget set_selected_tile
 
 onready var _placement_overlay
 onready var tilemap := $TileMap
@@ -79,3 +79,8 @@ func _on_Cursor_accept_pressed(cell):
 
 func _on_Cursor_accept_removed(cell):
 	remove_object(cell)
+
+func set_selected_tile(value):
+	if _selected_tile != value:
+		_selected_tile = value
+		print("_selected_tile = " + str(_selected_tile))

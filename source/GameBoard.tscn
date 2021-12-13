@@ -2,6 +2,6 @@
 
 [ext_resource path="res://source/GameBoard.gd" type="Script" id=1]
 
-[node name="GameBoard" type="YSort"]
+[node name="GameBoard" type="YSort" groups=["GameBoard"]]
 script = ExtResource( 1 )
 grid = null
