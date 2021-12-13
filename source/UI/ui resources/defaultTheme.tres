@@ -1,3 +1,6 @@
-[gd_resource type="Theme" format=2]
+[gd_resource type="Theme" load_steps=2 format=2]
+
+[ext_resource path="res://source/UI/ui resources/Panel9Frame.tres" type="StyleBox" id=1]
 
 [resource]
+Panel/styles/Panel9Patch = ExtResource( 1 )

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/art/Fantasy RPG snow pack/Objects/100%/Gift_blue_1.png" type="Texture" id=1]
 [ext_resource path="res://source/UI/TileButton.gd" type="Script" id=2]
 [ext_resource path="res://source/resources/PlaceableObjects/GiftBlue.tres" type="Resource" id=3]
+[ext_resource path="res://source/UI/ui resources/Panel9Frame.tres" type="StyleBox" id=4]
 
 [node name="LevelUI" type="Control"]
 anchor_right = 1.0
@@ -26,12 +27,12 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="MarginContainer"]
-visible = false
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 312.0
 margin_bottom = 172.0
 mouse_filter = 2
+custom_styles/panel = ExtResource( 4 )
 
 [node name="TileContainer" type="PanelContainer" parent="MarginContainer"]
 margin_left = 270.0
