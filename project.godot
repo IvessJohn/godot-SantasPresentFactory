@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/GameBoard.gd"
 }, {
+"base": "Resource",
+"class": "PlaceableObject",
+"language": "GDScript",
+"path": "res://source/resources/PlaceableObjects/PlaceableObject.gd"
+}, {
+"base": "StaticBody2D",
+"class": "PlaceableProp",
+"language": "GDScript",
+"path": "res://source/objects/PlaceableProp.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -48,6 +58,8 @@ _global_script_class_icons={
 "Actor": "",
 "Cursor": "",
 "GameBoard": "",
+"PlaceableObject": "",
+"PlaceableProp": "",
 "Player": "",
 "PropIDResource": "",
 "StateMachine": "",
@@ -56,7 +68,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Santa's Present Factory"
+config/name="Santa's Village Builder"
 run/main_scene="res://source/level/TestLevel.tscn"
 config/icon="res://icon.png"
 
