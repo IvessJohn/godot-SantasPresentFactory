@@ -45,6 +45,11 @@ _global_script_classes=[ {
 "path": "res://source/resources/PropIDResource.gd"
 }, {
 "base": "Node",
+"class": "SFXPlayerClass",
+"language": "GDScript",
+"path": "res://source/scripts/SFXPlayer.gd"
+}, {
+"base": "Node",
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://source/scripts/StateMachine.gd"
@@ -72,6 +77,7 @@ _global_script_class_icons={
 "PlaceableProp": "",
 "Player": "",
 "PropIDResource": "",
+"SFXPlayerClass": "",
 "StateMachine": "",
 "TileButton": "",
 "TileVerticalList": "",
@@ -83,6 +89,10 @@ _global_script_class_icons={
 config/name="Santa's Village Builder"
 run/main_scene="res://source/level/TestLevel.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SfxPlayer="*res://source/scripts/SFXPlayer.tscn"
 
 [display]
 

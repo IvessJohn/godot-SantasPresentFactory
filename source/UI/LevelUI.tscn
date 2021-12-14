@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/ChristmasTree.tres" type="Resource" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://source/UI/ui_resources/Panel9Frame.tres" type="StyleBox" id=4]
 [ext_resource path="res://source/UI/TileVerticalList.gd" type="Script" id=5]
 [ext_resource path="res://source/resources/PlaceableObjects/Bonfire.tres" type="Resource" id=6]
+[ext_resource path="res://source/UI/ui_resources/defaultTheme.tres" type="Theme" id=7]
+[ext_resource path="res://assets/art/Fantasy RPG snow pack/Objects/100%/Gift_blue_1.png" type="Texture" id=8]
 
 [node name="LevelUI" type="Control"]
 anchor_right = 1.0
@@ -40,23 +42,59 @@ margin_bottom = 172.0
 mouse_filter = 2
 custom_styles/panel = ExtResource( 4 )
 
+[node name="SelectedItem" type="PanelContainer" parent="MarginContainer"]
+margin_left = 121.0
+margin_top = 8.0
+margin_right = 199.0
+margin_bottom = 68.0
+mouse_filter = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource( 7 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/SelectedItem"]
+margin_left = 12.0
+margin_top = 13.0
+margin_right = 65.0
+margin_bottom = 47.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="ItemIcon" type="TextureRect" parent="MarginContainer/SelectedItem/VBoxContainer"]
+margin_left = 18.0
+margin_right = 34.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 12, 12 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 8 )
+stretch_mode = 6
+
+[node name="itemLabel" type="Label" parent="MarginContainer/SelectedItem/VBoxContainer"]
+margin_top = 20.0
+margin_right = 53.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Blue gift"
+
 [node name="TileContainer" type="PanelContainer" parent="MarginContainer"]
 self_modulate = Color( 1, 1, 1, 0.52549 )
-margin_left = 258.0
-margin_top = 35.0
+margin_left = 247.0
+margin_top = 29.0
 margin_right = 312.0
-margin_bottom = 145.0
+margin_bottom = 151.0
 grow_horizontal = 0
 grow_vertical = 2
 rect_min_size = Vector2( 18, 18 )
 size_flags_horizontal = 8
 size_flags_vertical = 4
+theme = ExtResource( 7 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TileContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 47.0
-margin_bottom = 103.0
+margin_left = 12.0
+margin_top = 13.0
+margin_right = 52.0
+margin_bottom = 109.0
 rect_min_size = Vector2( 40, 96 )
 scroll_horizontal_enabled = false
 
