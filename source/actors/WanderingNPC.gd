@@ -21,6 +21,10 @@ func should_wander() -> bool:
 func should_idle() -> bool:
 	return (wanderTimer.is_stopped() or wanderRayCast.is_colliding())
 
+func _physics_process(delta):
+	#Update AnimationTree for showing proper animations
+	animTree.set("parameters/Idle/blend_position", wander_direction)
+	animTree.set("parameters/Move/blend_position", wander_direction)
 
 func get_wanderTimer_new_duration() -> float:
 	return rand_range(wander_time["min"], wander_time["max"])

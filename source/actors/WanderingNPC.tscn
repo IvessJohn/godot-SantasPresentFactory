@@ -1,9 +1,33 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://source/actors/ActorBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/art/Fantasy RPG snow pack/Characters/100%/Elf_01_idle (16x24).png" type="Texture" id=2]
 [ext_resource path="res://source/actors/WanderingNPC.gd" type="Script" id=3]
 [ext_resource path="res://source/actors/WanderingNPCStateMachine.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle_down"
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle_left"
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle_right"
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle_up"
+
+[sub_resource type="Animation" id=6]
+resource_name = "move_down"
+
+[sub_resource type="Animation" id=7]
+resource_name = "move_left"
+
+[sub_resource type="Animation" id=8]
+resource_name = "move_right"
+
+[sub_resource type="Animation" id=9]
+resource_name = "move_up"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -16,8 +40,19 @@ texture = ExtResource( 2 )
 hframes = 4
 vframes = 4
 
+[node name="AnimationPlayer" parent="." index="2"]
+anims/idle_down = SubResource( 2 )
+anims/idle_left = SubResource( 3 )
+anims/idle_right = SubResource( 4 )
+anims/idle_up = SubResource( 5 )
+anims/move_down = SubResource( 6 )
+anims/move_left = SubResource( 7 )
+anims/move_right = SubResource( 8 )
+anims/move_up = SubResource( 9 )
+
 [node name="AnimationTree" parent="." index="3"]
 parameters/playback = SubResource( 1 )
+parameters/idle/blend_position = Vector2( -0.0031696, 0.965318 )
 
 [node name="WanderingNPCStateMachine" type="Node" parent="." index="4"]
 script = ExtResource( 4 )

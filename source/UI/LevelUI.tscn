@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://source/resources/PlaceableObjects/Props/Bonfire.tres" type="Resource" id=6]
 [ext_resource path="res://source/UI/ui_resources/defaultTheme.tres" type="Theme" id=7]
 [ext_resource path="res://assets/art/Fantasy RPG snow pack/Objects/100%/Gift_blue_1.png" type="Texture" id=8]
+[ext_resource path="res://source/UI/SelectedItem.gd" type="Script" id=9]
 
 [node name="LevelUI" type="Control"]
 anchor_right = 1.0
@@ -46,34 +47,36 @@ custom_styles/panel = ExtResource( 4 )
 margin_left = 281.0
 margin_top = 8.0
 margin_right = 359.0
-margin_bottom = 68.0
+margin_bottom = 76.0
 mouse_filter = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource( 7 )
+script = ExtResource( 9 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/SelectedItem"]
 margin_left = 12.0
 margin_top = 13.0
 margin_right = 65.0
-margin_bottom = 47.0
+margin_bottom = 55.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="ItemIcon" type="TextureRect" parent="MarginContainer/SelectedItem/VBoxContainer"]
-margin_left = 18.0
-margin_right = 34.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 12, 12 )
+margin_left = 14.0
+margin_right = 38.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 24, 24 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( 8 )
+expand = true
 stretch_mode = 6
 
-[node name="itemLabel" type="Label" parent="MarginContainer/SelectedItem/VBoxContainer"]
-margin_top = 20.0
+[node name="ItemLabel" type="Label" parent="MarginContainer/SelectedItem/VBoxContainer"]
+margin_top = 28.0
 margin_right = 53.0
-margin_bottom = 34.0
+margin_bottom = 42.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Blue gift"
 
@@ -107,3 +110,4 @@ script = ExtResource( 5 )
 tile_resources = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), null, null, null, null, null ]
 
 [connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileVerticalList" to="." method="_on_TileVerticalList_tile_chosen"]
+[connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileVerticalList" to="MarginContainer/SelectedItem" method="_on_TileVerticalList_tile_chosen"]

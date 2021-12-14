@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://source/actors/ActorBase.gd" type="Script" id=1]
 
@@ -29,9 +29,52 @@ resource_name = "move_right"
 [sub_resource type="Animation" id=10]
 resource_name = "move_up"
 
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "idle_left"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id=11]
+blend_point_0/node = SubResource( 16 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 17 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 18 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 19 )
+blend_point_3/pos = Vector2( -1, 0 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "move_down"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "move_up"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "move_right"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "move_left"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=12]
+blend_point_0/node = SubResource( 20 )
+blend_point_0/pos = Vector2( 0, 1 )
+blend_point_1/node = SubResource( 21 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 22 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 23 )
+blend_point_3/pos = Vector2( -1, 0 )
+y_label = "x"
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
@@ -43,6 +86,7 @@ states/idle/position = Vector2( 364, 95 )
 states/move/node = SubResource( 12 )
 states/move/position = Vector2( 542, 95 )
 transitions = [ "idle", "move", SubResource( 13 ), "move", "idle", SubResource( 14 ) ]
+graph_offset = Vector2( -159, -18 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
