@@ -12,7 +12,7 @@ func _ready():
 # A tile has been chosen
 func _on_TileVerticalList_tile_chosen(tile_resource):
 	if is_instance_valid(game_board):
-		game_board._selected_tile = tile_resource
+		game_board._selected_resource = tile_resource
 
 #func set_game_board_path(value):
 #	if game_board_path != value:

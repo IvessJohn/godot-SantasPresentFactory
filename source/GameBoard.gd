@@ -10,7 +10,7 @@ export(Resource) var props_res: Resource  = preload("res://source/resources/Prop
 # the object
 var _objects := {}
 
-var _selected_tile: Resource = null setget set_selected_tile
+var _selected_resource: Resource = null setget set_selected_resource
 
 onready var _placement_overlay
 onready var tilemap := $TileMap
@@ -50,20 +50,21 @@ func place_object(cell: Vector2):
 	# tilemap.set_cellv(...)
 	# tilemap.update_bitmask_region()
 #	var object_scene: PackedScene = props_res.get_prop(prop_id)
-	if _selected_tile:
-		var object_scene: PackedScene = _selected_tile.scene
-		if can_place_object(cell, _selected_tile):
-			# First, check if there was any other object placed and if so, remove it
-			if _objects.has(cell):
-				_objects[cell].queue_free()
-				_objects.erase(cell)
-			
-			var object_instance: Node2D = object_scene.instance()
-			objects.add_child(object_instance)
-			print((cell))
-			var object_pos: Vector2 = grid.calculate_map_position(cell)
-			object_instance.global_position = object_pos
-			_objects[cell] = object_instance
+	if can_place_object(cell, _selected_resource):
+		match _selected_resource.type:
+			PlaceableObjectResource.OBJECT_TYPES.PROP:
+				# First, check if there was any other object placed and if so, remove it
+				if _objects.has(cell):
+					_objects[cell].queue_free()
+					_objects.erase(cell)
+				
+				var object_scene: PackedScene = _selected_resource.scene
+				var object_instance: Node2D = object_scene.instance()
+				objects.add_child(object_instance)
+				print((cell))
+				var object_pos: Vector2 = grid.calculate_map_position(cell)
+				object_instance.global_position = object_pos
+				_objects[cell] = object_instance
 
 func remove_object(cell: Vector2):
 	if _objects.has(cell):
@@ -72,7 +73,7 @@ func remove_object(cell: Vector2):
 		_objects.erase(cell)
 
 func can_place_object(cell, object_resource) -> bool:
-	if not object_resource.scene:
+	if not object_resource or not object_resource.scene:
 		return false
 	
 	match object_resource.type:
@@ -94,7 +95,7 @@ func _on_Cursor_accept_pressed(cell):
 func _on_Cursor_accept_removed(cell):
 	remove_object(cell)
 
-func set_selected_tile(value):
-	if _selected_tile != value:
-		_selected_tile = value
-		print("_selected_tile = " + str(_selected_tile))
+func set_selected_resource(value):
+	if _selected_resource != value:
+		_selected_resource = value
+		print("_selected_resource = " + str(_selected_resource))

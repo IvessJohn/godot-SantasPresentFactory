@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
-[ext_resource path="res://source/resources/PlaceableObjects/ChristmasTree.tres" type="Resource" id=2]
-[ext_resource path="res://source/resources/PlaceableObjects/GiftBlue.tres" type="Resource" id=3]
+[ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
+[ext_resource path="res://source/resources/PlaceableObjects/Props/GiftBlue.tres" type="Resource" id=3]
 [ext_resource path="res://source/UI/ui_resources/Panel9Frame.tres" type="StyleBox" id=4]
 [ext_resource path="res://source/UI/TileVerticalList.gd" type="Script" id=5]
-[ext_resource path="res://source/resources/PlaceableObjects/Bonfire.tres" type="Resource" id=6]
+[ext_resource path="res://source/resources/PlaceableObjects/Props/Bonfire.tres" type="Resource" id=6]
 [ext_resource path="res://source/UI/ui_resources/defaultTheme.tres" type="Theme" id=7]
 [ext_resource path="res://assets/art/Fantasy RPG snow pack/Objects/100%/Gift_blue_1.png" type="Texture" id=8]
 

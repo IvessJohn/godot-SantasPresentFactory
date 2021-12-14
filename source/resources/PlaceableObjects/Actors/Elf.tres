@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://source/resources/PlaceableObjects/PlaceableObjectResource.gd" type="Script" id=1]
+[ext_resource path="res://source/actors/WanderingNPC.tscn" type="PackedScene" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Elf"
+type = 1
+scene = ExtResource( 2 )
