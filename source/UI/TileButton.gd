@@ -9,7 +9,8 @@ export(Resource) var tile_resource: Resource setget set_tile_resource
 
 
 func _ready():
-	rect_min_size = Vector2(16, 20)
+	rect_min_size = Vector2(24, 24)
+	expand_icon = true
 	# Will emit the signal 'tile_chosen' when pressed
 	connect("pressed", self, "on_pressed")
 	

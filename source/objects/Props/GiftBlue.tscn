@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/art/Fantasy RPG snow pack/Objects/100%/Gift_blue_1.png" type="Texture" id=1]
-[ext_resource path="res://source/objects/PlaceableProp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://source/objects/Props/PlaceableProp.tscn" type="PackedScene" id=2]
 
 [node name="GiftBlue" instance=ExtResource( 2 )]
 

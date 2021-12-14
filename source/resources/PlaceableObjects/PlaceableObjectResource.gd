@@ -1,5 +1,5 @@
 extends Resource
-class_name PlaceableObject
+class_name PlaceableObjectResource
 
 export(String) var name: String
 export(Texture) var ui_icon: Texture

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://source/resources/PlaceableObjects/PlaceableObjectResource.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/Fantasy RPG snow pack/Tileset/100%/Tree_small_christmas.png" type="Texture" id=2]
+[ext_resource path="res://source/objects/Props/ChristmasTreeSmall.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Christmas Tree"
+ui_icon = ExtResource( 2 )
+texture = ExtResource( 2 )
+scene = ExtResource( 3 )

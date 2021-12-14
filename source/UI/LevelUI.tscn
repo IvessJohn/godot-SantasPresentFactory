@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
+[ext_resource path="res://source/resources/PlaceableObjects/ChristmasTree.tres" type="Resource" id=2]
 [ext_resource path="res://source/resources/PlaceableObjects/GiftBlue.tres" type="Resource" id=3]
 [ext_resource path="res://source/UI/ui_resources/Panel9Frame.tres" type="StyleBox" id=4]
 [ext_resource path="res://source/UI/TileVerticalList.gd" type="Script" id=5]
+[ext_resource path="res://source/resources/PlaceableObjects/Bonfire.tres" type="Resource" id=6]
 
 [node name="LevelUI" type="Control"]
 anchor_right = 1.0
@@ -39,22 +41,31 @@ mouse_filter = 2
 custom_styles/panel = ExtResource( 4 )
 
 [node name="TileContainer" type="PanelContainer" parent="MarginContainer"]
-margin_left = 270.0
-margin_top = 59.0
+self_modulate = Color( 1, 1, 1, 0.52549 )
+margin_left = 258.0
+margin_top = 35.0
 margin_right = 312.0
-margin_bottom = 121.0
+margin_bottom = 145.0
 grow_horizontal = 0
 grow_vertical = 2
 rect_min_size = Vector2( 18, 18 )
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
-[node name="TileVerticalList" type="VBoxContainer" parent="MarginContainer/TileContainer" groups=["TileList"]]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TileContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 35.0
-margin_bottom = 55.0
-script = ExtResource( 5 )
-tile_resources = [ ExtResource( 3 ), ExtResource( 3 ) ]
+margin_right = 47.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 40, 96 )
+scroll_horizontal_enabled = false
 
-[connection signal="tile_chosen" from="MarginContainer/TileContainer/TileVerticalList" to="." method="_on_TileVerticalList_tile_chosen"]
+[node name="TileVerticalList" type="VBoxContainer" parent="MarginContainer/TileContainer/ScrollContainer" groups=["TileList"]]
+margin_left = 2.0
+margin_right = 26.0
+margin_bottom = 220.0
+size_flags_horizontal = 6
+script = ExtResource( 5 )
+tile_resources = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), null, null, null, null, null ]
+
+[connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileVerticalList" to="." method="_on_TileVerticalList_tile_chosen"]

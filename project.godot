@@ -25,14 +25,14 @@ _global_script_classes=[ {
 "path": "res://source/GameBoard.gd"
 }, {
 "base": "Resource",
-"class": "PlaceableObject",
+"class": "PlaceableObjectResource",
 "language": "GDScript",
-"path": "res://source/resources/PlaceableObjects/PlaceableObject.gd"
+"path": "res://source/resources/PlaceableObjects/PlaceableObjectResource.gd"
 }, {
 "base": "StaticBody2D",
 "class": "PlaceableProp",
 "language": "GDScript",
-"path": "res://source/objects/PlaceableProp.gd"
+"path": "res://source/objects/Props/PlaceableProp.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -68,7 +68,7 @@ _global_script_class_icons={
 "Actor": "",
 "Cursor": "",
 "GameBoard": "",
-"PlaceableObject": "",
+"PlaceableObjectResource": "",
 "PlaceableProp": "",
 "Player": "",
 "PropIDResource": "",

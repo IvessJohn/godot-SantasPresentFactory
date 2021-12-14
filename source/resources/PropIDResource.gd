@@ -6,7 +6,7 @@ enum PROP_ENUM {
 }
 
 var PROPS: Dictionary = {
-	PROP_ENUM.PRESENT: [preload("res://source/objects/GiftBlue.tscn")]
+	PROP_ENUM.PRESENT: [preload("res://source/objects/Props/GiftBlue.tscn")]
 }
 
 func get_prop(prop_id: int):

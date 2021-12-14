@@ -49,7 +49,8 @@ func place_object(cell: Vector2, prop_id: int):
 	# Place tile
 	# tilemap.set_cellv(...)
 	# tilemap.update_bitmask_region()
-	var object_scene: PackedScene = props_res.get_prop(prop_id)
+#	var object_scene: PackedScene = props_res.get_prop(prop_id)
+	var object_scene: PackedScene = _selected_tile.scene
 	if object_scene:
 		# First, check if there was any other object placed and if so, remove it
 		if _objects.has(cell):
