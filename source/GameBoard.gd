@@ -50,20 +50,21 @@ func place_object(cell: Vector2, prop_id: int):
 	# tilemap.set_cellv(...)
 	# tilemap.update_bitmask_region()
 #	var object_scene: PackedScene = props_res.get_prop(prop_id)
-	var object_scene: PackedScene = _selected_tile.scene
-	if object_scene:
-		# First, check if there was any other object placed and if so, remove it
-		if _objects.has(cell):
-			_objects[cell].queue_free()
-			_objects.erase(cell)
-		
-		var object_instance: Node2D = object_scene.instance()
-		objects.add_child(object_instance)
-		print((cell))
-		var object_pos: Vector2 = grid.calculate_map_position(cell)
-		object_instance.global_position = object_pos
-#		object_instance.global_position = Vector2(24,24)
-		_objects[cell] = object_instance
+	if _selected_tile:
+		var object_scene: PackedScene = _selected_tile.scene
+		if object_scene:
+			# First, check if there was any other object placed and if so, remove it
+			if _objects.has(cell):
+				_objects[cell].queue_free()
+				_objects.erase(cell)
+			
+			var object_instance: Node2D = object_scene.instance()
+			objects.add_child(object_instance)
+			print((cell))
+			var object_pos: Vector2 = grid.calculate_map_position(cell)
+			object_instance.global_position = object_pos
+	#		object_instance.global_position = Vector2(24,24)
+			_objects[cell] = object_instance
 
 func remove_object(cell: Vector2):
 	if _objects.has(cell):

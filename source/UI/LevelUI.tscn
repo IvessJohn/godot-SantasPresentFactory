@@ -37,15 +37,15 @@ __meta__ = {
 visible = false
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 312.0
-margin_bottom = 172.0
+margin_right = 632.0
+margin_bottom = 352.0
 mouse_filter = 2
 custom_styles/panel = ExtResource( 4 )
 
 [node name="SelectedItem" type="PanelContainer" parent="MarginContainer"]
-margin_left = 121.0
+margin_left = 281.0
 margin_top = 8.0
-margin_right = 199.0
+margin_right = 359.0
 margin_bottom = 68.0
 mouse_filter = 2
 size_flags_horizontal = 4
@@ -79,10 +79,10 @@ text = "Blue gift"
 
 [node name="TileContainer" type="PanelContainer" parent="MarginContainer"]
 self_modulate = Color( 1, 1, 1, 0.52549 )
-margin_left = 247.0
-margin_top = 29.0
-margin_right = 312.0
-margin_bottom = 151.0
+margin_left = 567.0
+margin_top = 119.0
+margin_right = 632.0
+margin_bottom = 241.0
 grow_horizontal = 0
 grow_vertical = 2
 rect_min_size = Vector2( 18, 18 )

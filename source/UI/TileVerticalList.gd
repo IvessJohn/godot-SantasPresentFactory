@@ -16,6 +16,9 @@ var shown_children := []
 func _ready():
 	if not is_in_group("TileList"):
 		add_to_group("TileList")
+	
+	if tile_resources.size() > 0:
+		choose_tile(tile_resources[0])
 
 func set_tile_resources(value):
 	if tile_resources != value:
@@ -37,4 +40,7 @@ func set_tile_resources(value):
 			x+=1
 
 func _on_tileButton_tile_chosen(tile_resource):
+	choose_tile(tile_resource)
+
+func choose_tile(tile_resource):
 	emit_signal("tile_chosen", tile_resource)
