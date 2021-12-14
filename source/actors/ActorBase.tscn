@@ -66,13 +66,15 @@ animation = "move_left"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=12]
 blend_point_0/node = SubResource( 20 )
-blend_point_0/pos = Vector2( 0, 1 )
+blend_point_0/pos = Vector2( 0, 1.1 )
 blend_point_1/node = SubResource( 21 )
-blend_point_1/pos = Vector2( 0, -1 )
+blend_point_1/pos = Vector2( 0, -1.1 )
 blend_point_2/node = SubResource( 22 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 23 )
 blend_point_3/pos = Vector2( -1, 0 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 y_label = "x"
 blend_mode = 1
 
@@ -115,6 +117,7 @@ anims/move_up = SubResource( 10 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 1 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 15 )
 parameters/idle/blend_position = Vector2( 0, 0 )
 parameters/move/blend_position = Vector2( 0, 0 )
