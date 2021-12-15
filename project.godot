@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/objects/Props/PlaceableProp.gd"
 }, {
+"base": "PlaceableObjectResource",
+"class": "PlaceableTileResource",
+"language": "GDScript",
+"path": "res://source/resources/PlaceableObjects/PlaceableTileResource.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -75,6 +80,7 @@ _global_script_class_icons={
 "GameBoard": "",
 "PlaceableObjectResource": "",
 "PlaceableProp": "",
+"PlaceableTileResource": "",
 "Player": "",
 "PropIDResource": "",
 "SFXPlayerClass": "",

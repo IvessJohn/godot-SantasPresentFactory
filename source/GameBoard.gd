@@ -9,6 +9,8 @@ export(Resource) var props_res: Resource  = preload("res://source/resources/Prop
 # Each key-value pair represents an object. The key is the position, the value is the reference to
 # the object
 var _objects := {}
+var _props := {}
+var _actors := []
 
 var _selected_resource: Resource = null setget set_selected_resource
 
@@ -61,16 +63,33 @@ func place_object(cell: Vector2):
 				var object_scene: PackedScene = _selected_resource.scene
 				var object_instance: Node2D = object_scene.instance()
 				objects.add_child(object_instance)
-				print((cell))
+				
+#				print((cell))
 				var object_pos: Vector2 = grid.calculate_map_position(cell)
 				object_instance.global_position = object_pos
+				
 				_objects[cell] = object_instance
+				_props[cell] = object_instance
+			PlaceableObjectResource.OBJECT_TYPES.ACTOR:
+				var actor_scene: PackedScene = _selected_resource.scene
+				var actor_instance: Node2D = actor_scene.instance()
+				objects.add_child(actor_instance)
+				
+#				print((cell))
+				var object_pos: Vector2 = grid.calculate_map_position(cell)
+				actor_instance.global_position = object_pos
+				
+				_actors.append(actor_instance)
+#				_objects[cell] = object_instance
+#				_props[cell] = object_instance
 
 func remove_object(cell: Vector2):
 	if _objects.has(cell):
 		var removed_object: Node2D = _objects[cell]
 		removed_object.queue_free()
 		_objects.erase(cell)
+		if _props.has(cell):
+			_props.erase(cell)
 
 func can_place_object(cell, object_resource) -> bool:
 	if not object_resource or not object_resource.scene:

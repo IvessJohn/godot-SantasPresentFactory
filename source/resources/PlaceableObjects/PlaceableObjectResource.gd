@@ -4,6 +4,7 @@ class_name PlaceableObjectResource
 enum OBJECT_TYPES {
 	PROP,
 	ACTOR,
+	TILE,
 	BUILDING
 }
 
