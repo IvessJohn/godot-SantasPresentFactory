@@ -13,6 +13,7 @@ func play_sfx(sound: AudioStream, parent: Node = get_tree().current_scene,
 		stream_player.pitch_scale = rand_range(pitch_range.x, pitch_range.y)
 		stream_player.volume_db = volume_db
 		stream_player.pause_mode = pause_behavior
+#		stream_player.bus = AudioServer.get_bus
 		
 		parent.add_child(stream_player)
 		stream_player.play()
