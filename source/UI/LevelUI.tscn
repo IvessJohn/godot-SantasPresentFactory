@@ -53,6 +53,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource( 7 )
 script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/SelectedItem"]
 margin_left = 12.0
@@ -92,6 +95,10 @@ rect_min_size = Vector2( 18, 18 )
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TileContainer"]
 margin_left = 12.0
