@@ -20,3 +20,5 @@ func _on_TileVerticalList_tile_chosen(tile_resource):
 #		game_board = get_node(game_board_path)
 
 
+
+
