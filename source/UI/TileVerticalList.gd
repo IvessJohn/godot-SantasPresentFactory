@@ -1,6 +1,6 @@
 tool
-extends VBoxContainer
-class_name TileVerticalList
+extends GridContainer
+class_name TileGrid
 
 # GameBoard will receive this node's 'tile_chosen' signal to access the chosen tile and be able to
 # place it on the map. Every TileButton will connect its 'tile_chosen' signal to the list's

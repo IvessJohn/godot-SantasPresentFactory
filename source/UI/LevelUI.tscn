@@ -88,7 +88,7 @@ text = "Blue gift"
 
 [node name="TileContainer" type="PanelContainer" parent="MarginContainer"]
 self_modulate = Color( 1, 1, 1, 0.52549 )
-margin_left = 567.0
+margin_left = 543.0
 margin_top = 119.0
 margin_right = 632.0
 margin_bottom = 241.0
@@ -106,18 +106,18 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TileContainer"]
 margin_left = 12.0
 margin_top = 13.0
-margin_right = 52.0
+margin_right = 76.0
 margin_bottom = 109.0
 rect_min_size = Vector2( 40, 96 )
 scroll_horizontal_enabled = false
 
-[node name="TileVerticalList" type="VBoxContainer" parent="MarginContainer/TileContainer/ScrollContainer" groups=["TileList"]]
-margin_left = 2.0
-margin_right = 26.0
-margin_bottom = 220.0
+[node name="TileGrid" type="GridContainer" parent="MarginContainer/TileContainer/ScrollContainer" groups=["TileList"]]
+margin_right = 52.0
+margin_bottom = 192.0
 size_flags_horizontal = 6
+columns = 2
 script = ExtResource( 5 )
-tile_resources = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 12 ), null, null, null ]
+tile_resources = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 12 ), null, null, null, null, null, null, null, null, null ]
 
 [node name="ScreenshotButton" type="Button" parent="MarginContainer"]
 margin_left = 597.0
@@ -131,6 +131,5 @@ disabled = true
 text = "SCR"
 script = ExtResource( 10 )
 
-[connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileVerticalList" to="." method="_on_TileVerticalList_tile_chosen"]
-[connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileVerticalList" to="MarginContainer/SelectedItem" method="_on_TileVerticalList_tile_chosen"]
+[connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileGrid" to="." method="_on_TileGrid_tile_chosen"]
 [connection signal="pressed" from="MarginContainer/ScreenshotButton" to="MarginContainer/ScreenshotButton" method="_on_pressed"]

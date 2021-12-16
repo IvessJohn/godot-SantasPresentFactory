@@ -10,7 +10,7 @@ func _ready():
 		game_board = get_tree().get_nodes_in_group("GameBoard")[0]
 
 # A tile has been chosen
-func _on_TileVerticalList_tile_chosen(tile_resource):
+func _on_TileGrid_tile_chosen(tile_resource):
 	if is_instance_valid(game_board):
 		game_board._selected_resource = tile_resource
 

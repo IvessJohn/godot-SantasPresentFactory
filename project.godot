@@ -59,8 +59,8 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/UI/TileButton.gd"
 }, {
-"base": "VBoxContainer",
-"class": "TileVerticalList",
+"base": "GridContainer",
+"class": "TileGrid",
 "language": "GDScript",
 "path": "res://source/UI/TileVerticalList.gd"
 }, {
@@ -80,7 +80,7 @@ _global_script_class_icons={
 "SFXPlayerClass": "",
 "StateMachine": "",
 "TileButton": "",
-"TileVerticalList": "",
+"TileGrid": "",
 "WanderingNPC": ""
 }
 
