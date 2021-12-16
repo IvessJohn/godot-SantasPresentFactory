@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://source/resources/PlaceableObjects/PlaceableTileResource.gd" type="Script" id=1]
+[ext_resource path="res://source/UI/icons/props and tiles/Fence.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Fence"
+type = 2
+ui_icon = ExtResource( 2 )
+texture = ExtResource( 2 )
+tile_id = 5
+tile_placement = 0

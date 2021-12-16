@@ -22,6 +22,7 @@ onready var tilemaps := {
 onready var objects := $Objects
 
 
+
 func get_unoccupied_cells() -> Array:
 	var cells := []
 	
@@ -50,14 +51,6 @@ func _flood_fill(category: String) -> Array:
 	
 	return cells
 
-func remove_object(cell: Vector2):
-	if _objects.has(cell):
-		var removed_object: Node2D = _objects[cell]
-		removed_object.queue_free()
-		_objects.erase(cell)
-		if _props.has(cell):
-			_props.erase(cell)
-
 func _on_Cursor_moved(new_cell):
 	pass
 
@@ -72,6 +65,9 @@ func set_selected_resource(value):
 		_selected_resource = value
 		print("_selected_resource = " + str(_selected_resource))
 
+
+
+
 #
 # OBEJCT PLACEMENT
 #
@@ -80,6 +76,7 @@ func place_object(cell: Vector2):
 	# tilemap.set_cellv(...)
 	# tilemap.update_bitmask_region()
 #	var object_scene: PackedScene = props_res.get_prop(prop_id)
+	print(can_place_object(cell, _selected_resource))
 	if can_place_object(cell, _selected_resource):
 		match _selected_resource.type:
 			PlaceableObjectResource.OBJECT_TYPES.PROP:
@@ -90,18 +87,20 @@ func place_object(cell: Vector2):
 				_place_tile(cell, _selected_resource)
 
 func can_place_object(cell, object_resource) -> bool:
-	if not object_resource or not object_resource.scene:
+	if not object_resource:
 		return false
 	
 	match object_resource.type:
 		PlaceableObjectResource.OBJECT_TYPES.PROP:
-			return true
+			return object_resource.scene != null
 		PlaceableObjectResource.OBJECT_TYPES.ACTOR:
 			return not _objects.has(cell)
+		PlaceableObjectResource.OBJECT_TYPES.TILE:
+			return true
 		PlaceableObjectResource.OBJECT_TYPES.BUILDING:
 			return false
-		_:
-			return false
+	
+	return false
 
 func _place_prop(cell, _prop_resource: PlaceableObjectResource):
 	# First, check if there was any other object placed and if so, remove it
@@ -139,6 +138,16 @@ func _place_tile(cell, _tile_resource: PlaceableTileResource):
 	tilemap.set_cellv(cell, tile_id)
 	tilemap.update_bitmask_region()
 
+
+
+
 #
 # OBJECT REMOVAL
 #
+func remove_object(cell: Vector2):
+	if _objects.has(cell):
+		var removed_object: Node2D = _objects[cell]
+		removed_object.queue_free()
+		_objects.erase(cell)
+		if _props.has(cell):
+			_props.erase(cell)

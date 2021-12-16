@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/art/Fantasy RPG snow pack/Objects/100%/Gift_blue_1.png" type="Texture" id=8]
 [ext_resource path="res://source/UI/SelectedItem.gd" type="Script" id=9]
 [ext_resource path="res://source/UI/elements/ScreenshotButton.gd" type="Script" id=10]
+[ext_resource path="res://source/resources/PlaceableObjects/Tiles/Fence.tres" type="Resource" id=11]
 
 [node name="LevelUI" type="Control" groups=["LevelUI", "UI"]]
 anchor_right = 1.0
@@ -115,7 +116,7 @@ margin_right = 26.0
 margin_bottom = 220.0
 size_flags_horizontal = 6
 script = ExtResource( 5 )
-tile_resources = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), null, null, null, null, null ]
+tile_resources = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 11 ), null, null, null, null ]
 
 [node name="ScreenshotButton" type="Button" parent="MarginContainer"]
 margin_left = 597.0
