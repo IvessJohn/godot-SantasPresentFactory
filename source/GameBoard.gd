@@ -15,7 +15,10 @@ var _actors := []
 var _selected_resource: Resource = null setget set_selected_resource
 
 onready var _placement_overlay
-onready var tilemap := $TileMap
+onready var tilemaps := {
+	PlaceableTileResource.TILE_PLACEMENT.GROUND: $GroundTileMap,
+	PlaceableTileResource.TILE_PLACEMENT.SURFACE: $SurfaceTileMap
+}
 onready var objects := $Objects
 
 
@@ -70,6 +73,7 @@ func place_object(cell: Vector2):
 				
 				_objects[cell] = object_instance
 				_props[cell] = object_instance
+			
 			PlaceableObjectResource.OBJECT_TYPES.ACTOR:
 				var actor_scene: PackedScene = _selected_resource.scene
 				var actor_instance: Node2D = actor_scene.instance()
@@ -82,6 +86,9 @@ func place_object(cell: Vector2):
 				_actors.append(actor_instance)
 #				_objects[cell] = object_instance
 #				_props[cell] = object_instance
+			
+			PlaceableObjectResource.OBJECT_TYPES.TILE:
+				pass
 
 func remove_object(cell: Vector2):
 	if _objects.has(cell):
@@ -118,3 +125,12 @@ func set_selected_resource(value):
 	if _selected_resource != value:
 		_selected_resource = value
 		print("_selected_resource = " + str(_selected_resource))
+
+func _place_prop(cell, _prop_resource):
+	pass
+
+func _place_actor(cell, _actor_resource):
+	pass
+
+func _place_tile(cell, _tile_resource):
+	pass
