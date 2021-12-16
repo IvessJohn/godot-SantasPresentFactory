@@ -1,14 +1,14 @@
 extends PlaceableObjectResource
 class_name PlaceableTileResource
 
-enum TILE_TYPE {
+enum TILE_ID {
 	NULL,
-	FENCE
+	FENCE = 5
 }
 enum TILE_PLACEMENT {
 	SURFACE,
 	GROUND
 }
 
-export(TILE_TYPE) var tile_type: int
+export(TILE_ID) var tile_id: int
 export(TILE_PLACEMENT) var tile_placement: int
