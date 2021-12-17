@@ -16,11 +16,6 @@ TEXTURES = {
 [node name="AnimationTree" parent="." index="3"]
 parameters/playback = SubResource( 1 )
 
-[node name="Control" type="Control" parent="." index="8"]
-margin_left = -6.0
-margin_top = -11.0
-margin_right = 6.0
-margin_bottom = 2.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="InteractionArea" parent="." index="8"]
+collision_layer = 1
+collision_mask = 1

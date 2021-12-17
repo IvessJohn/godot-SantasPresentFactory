@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://source/actors/ActorBase.gd" type="Script" id=1]
 
@@ -92,6 +92,9 @@ graph_offset = Vector2( -159, -18 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 5, 5 )
+
 [node name="ActorBase" type="KinematicBody2D" groups=["Actor"]]
 collision_layer = 4
 collision_mask = 3
@@ -122,11 +125,13 @@ parameters/playback = SubResource( 15 )
 parameters/idle/blend_position = Vector2( 0, 0 )
 parameters/move/blend_position = Vector2( 0, 0 )
 
-[node name="InteractionArea" type="Control" parent="."]
-margin_left = -5.0
-margin_top = -12.0
-margin_right = 5.0
-margin_bottom = -1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2( 0, -6 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource( 24 )
+
+[connection signal="clicked" from="." to="." method="_on_clicked"]
+[connection signal="input_event" from="InteractionArea" to="." method="_on_InteractionArea_input_event"]

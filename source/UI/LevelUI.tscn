@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/GiftBlue.tres" type="Resource" id=3]
-[ext_resource path="res://source/UI/ui_resources/Panel9Frame.tres" type="StyleBox" id=4]
 [ext_resource path="res://source/UI/TileVerticalList.gd" type="Script" id=5]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/Bonfire.tres" type="Resource" id=6]
 [ext_resource path="res://source/UI/ui_resources/defaultTheme.tres" type="Theme" id=7]
@@ -37,15 +36,6 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
-
-[node name="Panel" type="Panel" parent="MarginContainer"]
-visible = false
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 632.0
-margin_bottom = 352.0
-mouse_filter = 2
-custom_styles/panel = ExtResource( 4 )
 
 [node name="SelectedItem" type="PanelContainer" parent="MarginContainer"]
 margin_left = 281.0
