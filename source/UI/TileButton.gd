@@ -16,6 +16,9 @@ func _ready():
 	
 	if not is_in_group("TileButton"):
 		add_to_group("TileButton")
+	
+	if tile_resource:
+		hint_tooltip = tile_resource.name + "\r\n" + tile_resource.get_type_in_string() 
 
 func set_tile_resource(value: Resource):
 	if tile_resource != value:
