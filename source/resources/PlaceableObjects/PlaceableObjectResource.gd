@@ -5,7 +5,8 @@ enum OBJECT_TYPES {
 	PROP,
 	ACTOR,
 	TILE,
-	BUILDING
+	BUILDING,
+	DECORATION	# Decorations are walkable, props aren't
 }
 
 export(String) var name: String
