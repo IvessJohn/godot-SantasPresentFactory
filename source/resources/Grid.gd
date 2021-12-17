@@ -1,6 +1,6 @@
 extends Resource
 
-export var size := Vector2(20, 10)
+export var size := Vector2(40, 23)
 export var cell_size := Vector2(16, 16)
 
 var half_cell_size := cell_size * 0.5

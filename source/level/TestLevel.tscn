@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://source/UI/Cursor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/scenery/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/GameBoard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://source/resources/Grid.tres" type="Resource" id=4]
 [ext_resource path="res://source/UI/LevelUI.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 190 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 350, 16 )
 
 [node name="TestLevel" type="Node2D"]
 
@@ -25,6 +31,28 @@ visible = true
 is_active = true
 
 [node name="Objects" type="YSort" parent="GameBoard"]
+
+[node name="LevelBorders" type="StaticBody2D" parent="GameBoard"]
+collision_mask = 0
+
+[node name="CollShapeLeft" type="CollisionShape2D" parent="GameBoard/LevelBorders"]
+position = Vector2( -10, 180 )
+shape = SubResource( 1 )
+
+[node name="CollShapeRight" type="CollisionShape2D" parent="GameBoard/LevelBorders"]
+position = Vector2( 650, 180 )
+shape = SubResource( 1 )
+
+[node name="CollShapeTop" type="CollisionShape2D" parent="GameBoard/LevelBorders"]
+position = Vector2( 320, -15 )
+shape = SubResource( 2 )
+
+[node name="CollShapeBottom" type="CollisionShape2D" parent="GameBoard/LevelBorders"]
+position = Vector2( 320, 375 )
+shape = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

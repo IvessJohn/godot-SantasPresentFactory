@@ -139,9 +139,20 @@ func _place_tile(cell, _tile_resource: PlaceableTileResource):
 # OBJECT REMOVAL
 #
 func remove_object(cell: Vector2):
-	if _objects.has(cell):
-		var removed_object: Node2D = _objects[cell]
-		removed_object.queue_free()
-		_objects.erase(cell)
-		if _props.has(cell):
-			_props.erase(cell)
+	if _can_remove_object(cell):
+		if _objects.has(cell):
+			var removed_object: Node2D = _objects[cell]
+			removed_object.queue_free()
+			_objects.erase(cell)
+			if _props.has(cell):
+				_props.erase(cell)
+		elif tilemaps[PlaceableTileResource.TILE_PLACEMENT.SURFACE].get_cellv(cell) != TileMap.INVALID_CELL:
+			var tilemap: TileMap = tilemaps[PlaceableTileResource.TILE_PLACEMENT.SURFACE]
+			tilemap.set_cellv(cell, -1)
+			tilemap.update_bitmask_region()
+
+func _can_remove_object(cell: Vector2) -> bool:
+	if _objects.has(cell) or \
+		tilemaps[PlaceableTileResource.TILE_PLACEMENT.SURFACE].get_cellv(cell) != TileMap.INVALID_CELL:
+		return true
+	return false

@@ -168,6 +168,7 @@ hframes = 4
 vframes = 4
 
 [node name="AnimationPlayer" parent="." index="2"]
+autoplay = "idle_down"
 anims/RESET = SubResource( 10 )
 anims/idle_down = SubResource( 2 )
 anims/idle_left = SubResource( 3 )
@@ -180,7 +181,6 @@ anims/move_up = SubResource( 9 )
 
 [node name="AnimationTree" parent="." index="3"]
 parameters/playback = SubResource( 1 )
-parameters/idle/blend_position = Vector2( -0.0031696, 0.965318 )
 
 [node name="WanderingNPCStateMachine" type="Node" parent="." index="4"]
 script = ExtResource( 4 )

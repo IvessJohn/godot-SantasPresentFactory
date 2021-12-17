@@ -132,4 +132,5 @@ text = "SCR"
 script = ExtResource( 10 )
 
 [connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileGrid" to="." method="_on_TileGrid_tile_chosen"]
+[connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileGrid" to="MarginContainer/SelectedItem" method="_update_selected_object"]
 [connection signal="pressed" from="MarginContainer/ScreenshotButton" to="MarginContainer/ScreenshotButton" method="_on_pressed"]
