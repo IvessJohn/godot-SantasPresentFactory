@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://source/UI/elements/ScreenshotButton.gd" type="Script" id=10]
 [ext_resource path="res://source/resources/PlaceableObjects/Tiles/Fence.tres" type="Resource" id=11]
 [ext_resource path="res://source/resources/PlaceableObjects/Actors/Elf.tres" type="Resource" id=12]
+[ext_resource path="res://source/UI/elements/PlacementModeButton.gd" type="Script" id=13]
 
 [node name="LevelUI" type="Control" groups=["LevelUI", "UI"]]
 anchor_right = 1.0
@@ -100,12 +101,18 @@ custom_colors/font_color = Color( 0.294118, 0.294118, 0.294118, 1 )
 text = "Type:"
 align = 1
 
-[node name="TileContainer" type="PanelContainer" parent="MarginContainer"]
-self_modulate = Color( 1, 1, 1, 0.52549 )
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 543.0
 margin_top = 119.0
 margin_right = 632.0
 margin_bottom = 241.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="TileContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0.52549 )
+margin_right = 89.0
+margin_bottom = 122.0
 grow_horizontal = 0
 grow_vertical = 2
 rect_min_size = Vector2( 18, 18 )
@@ -117,7 +124,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TileContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TileContainer"]
 margin_left = 12.0
 margin_top = 13.0
 margin_right = 76.0
@@ -125,13 +132,24 @@ margin_bottom = 109.0
 rect_min_size = Vector2( 40, 96 )
 scroll_horizontal_enabled = false
 
-[node name="TileGrid" type="GridContainer" parent="MarginContainer/TileContainer/ScrollContainer" groups=["TileList"]]
+[node name="TileGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/TileContainer/ScrollContainer" groups=["TileList"]]
 margin_right = 52.0
 margin_bottom = 192.0
 size_flags_horizontal = 6
 columns = 2
 script = ExtResource( 5 )
 tile_resources = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 12 ), null, null, null, null, null, null, null, null, null ]
+
+[node name="PlacementModeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
+margin_left = 34.0
+margin_top = 126.0
+margin_right = 54.0
+margin_bottom = 146.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "X"
+script = ExtResource( 13 )
 
 [node name="ScreenshotButton" type="Button" parent="MarginContainer"]
 margin_left = 597.0
@@ -145,6 +163,6 @@ disabled = true
 text = "SCR"
 script = ExtResource( 10 )
 
-[connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileGrid" to="." method="_on_TileGrid_tile_chosen"]
-[connection signal="tile_chosen" from="MarginContainer/TileContainer/ScrollContainer/TileGrid" to="MarginContainer/SelectedItem" method="_update_selected_object"]
+[connection signal="tile_chosen" from="MarginContainer/VBoxContainer/TileContainer/ScrollContainer/TileGrid" to="." method="_on_TileGrid_tile_chosen"]
+[connection signal="tile_chosen" from="MarginContainer/VBoxContainer/TileContainer/ScrollContainer/TileGrid" to="MarginContainer/SelectedItem" method="_update_selected_object"]
 [connection signal="pressed" from="MarginContainer/ScreenshotButton" to="MarginContainer/ScreenshotButton" method="_on_pressed"]
