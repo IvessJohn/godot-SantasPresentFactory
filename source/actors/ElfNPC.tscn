@@ -15,4 +15,3 @@ TEXTURES = {
 
 [node name="AnimationTree" parent="." index="3"]
 parameters/playback = SubResource( 1 )
-parameters/idle/blend_position = Vector2( 0, 0 )

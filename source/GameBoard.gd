@@ -97,11 +97,15 @@ func can_place_object(cell, object_resource) -> bool:
 	
 	return false
 
+func is_cell_occupied(cell):
+	if _objects.has(cell) or \
+		tilemaps[PlaceableTileResource.TILE_PLACEMENT.SURFACE].get_cellv(cell) != TileMap.INVALID_CELL:
+		return true
+	return false
+
 func _place_prop(cell, _prop_resource: PlaceableObjectResource):
-	# First, check if there was any other object placed and if so, remove it
-	if _objects.has(cell):
-		_objects[cell].queue_free()
-		_objects.erase(cell)
+	# If there is another tile/object at this position, remove it
+	remove_object(cell)
 	
 	var object_scene: PackedScene = _selected_resource.scene
 	var object_instance: Node2D = object_scene.instance()
@@ -128,6 +132,9 @@ func _place_actor(cell, _actor_resource: PlaceableObjectResource):
 
 func _place_tile(cell, _tile_resource: PlaceableTileResource):
 	var tilemap: TileMap = tilemaps[_tile_resource.tile_placement]
+	# If there is another tile/object at this position, remove it
+	remove_object(cell)
+	
 	var tile_id: int = _tile_resource.tile_id
 	tilemap.set_cellv(cell, tile_id)
 	tilemap.update_bitmask_region()
@@ -139,17 +146,19 @@ func _place_tile(cell, _tile_resource: PlaceableTileResource):
 # OBJECT REMOVAL
 #
 func remove_object(cell: Vector2):
-	if _can_remove_object(cell):
+	if is_cell_occupied(cell) and _can_remove_object(cell):
 		if _objects.has(cell):
 			var removed_object: Node2D = _objects[cell]
 			removed_object.queue_free()
 			_objects.erase(cell)
 			if _props.has(cell):
 				_props.erase(cell)
+		
 		elif tilemaps[PlaceableTileResource.TILE_PLACEMENT.SURFACE].get_cellv(cell) != TileMap.INVALID_CELL:
 			var tilemap: TileMap = tilemaps[PlaceableTileResource.TILE_PLACEMENT.SURFACE]
 			tilemap.set_cellv(cell, -1)
 			tilemap.update_bitmask_region()
+
 
 func _can_remove_object(cell: Vector2) -> bool:
 	if _objects.has(cell) or \
