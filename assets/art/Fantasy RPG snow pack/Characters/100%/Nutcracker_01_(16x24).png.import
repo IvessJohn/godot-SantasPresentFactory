@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Gnome_01_walk (16x24).png-c10a922621d8d98f1f0105051e67b818.stex"
+path="res://.import/Nutcracker_01_(16x24).png-a8f6148a14298e92f9bb753e6966292a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Fantasy RPG snow pack/Characters/100%/Gnome_01_walk (16x24).png"
-dest_files=[ "res://.import/Gnome_01_walk (16x24).png-c10a922621d8d98f1f0105051e67b818.stex" ]
+source_file="res://assets/art/Fantasy RPG snow pack/Characters/100%/Nutcracker_01_(16x24).png"
+dest_files=[ "res://.import/Nutcracker_01_(16x24).png-a8f6148a14298e92f9bb753e6966292a.stex" ]
 
 [params]
 
