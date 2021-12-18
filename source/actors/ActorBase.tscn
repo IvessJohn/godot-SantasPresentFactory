@@ -88,6 +88,7 @@ states/idle/position = Vector2( 364, 95 )
 states/move/node = SubResource( 12 )
 states/move/position = Vector2( 542, 95 )
 transitions = [ "idle", "move", SubResource( 13 ), "move", "idle", SubResource( 14 ) ]
+start_node = "idle"
 graph_offset = Vector2( -159, -18 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]

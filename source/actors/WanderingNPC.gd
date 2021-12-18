@@ -2,11 +2,6 @@ extends Actor
 class_name WanderingNPC
 
 
-export(Dictionary) var TEXTURES := {
-	"idle": null,
-	"move": null,
-}
-
 # Min and max duration of staying idle
 export(Dictionary) var idle_time = {"min": 2.0, "max": 10.0}
 # Min and max duration of wandering
