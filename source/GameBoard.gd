@@ -21,6 +21,13 @@ onready var tilemaps := {
 onready var objects := $Objects
 
 
+func sleep():
+	$Cursor.is_active = false
+
+func wake_up():
+	$Cursor.is_active = true
+
+
 
 func get_unoccupied_cells() -> Array:
 	var cells := []

@@ -1,4 +1,4 @@
-extends Button
+extends ButtonWithSFX
 
 
 var screenshot_dir := "screenshots/"
