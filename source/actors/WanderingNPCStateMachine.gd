@@ -12,8 +12,8 @@ func _state_logic(delta):
 			parent.velocity = Vector2.ZERO
 		states.move:
 			parent.velocity = parent.SPEED * parent.wander_direction
-			parent.animTree.set("parameters/Idle/blend_position", parent.wander_direction)
-			parent.animTree.set("parameters/Move/blend_position", parent.wander_direction)
+			parent.animTree.set("parameters/idle/blend_position", parent.wander_direction)
+			parent.animTree.set("parameters/move/blend_position", parent.wander_direction)
 	
 	parent._move()
 
@@ -33,14 +33,10 @@ func _enter_state(new_state, old_state):
 	match new_state:
 		states.idle:
 			parent.idleTimer.start(parent.get_idleTimer_new_duration())
-			parent.animState.travel("Idle")
-			if parent.TEXTURES["idle"] != null:
-				parent.sprite.texture = parent.TEXTURES["idle"]
+			parent.animState.travel("idle")
 		states.move:
 			parent.wanderTimer.start(parent.get_wanderTimer_new_duration())
-			parent.animState.travel("Move")
-			if parent.TEXTURES["move"] != null:
-				parent.sprite.texture = parent.TEXTURES["move"]
+			parent.animState.travel("move")
 			
 			var deg = rand_range(0, 360)
 			parent.wanderRayCast.rotation_degrees = deg
