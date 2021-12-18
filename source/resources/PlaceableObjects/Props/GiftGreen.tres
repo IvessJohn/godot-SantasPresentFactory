@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://source/objects/Props/GiftGreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://source/resources/PlaceableObjects/PlaceableObjectResource.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/Fantasy RPG snow pack/Objects/100%/Gift_green_1.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 2 )
+name = "Green Gift"
+type = 0
+ui_icon = ExtResource( 3 )
+texture = ExtResource( 3 )
+scene = ExtResource( 1 )

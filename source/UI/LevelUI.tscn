@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/GiftBlue.tres" type="Resource" id=3]
+[ext_resource path="res://source/resources/PlaceableObjects/Props/GiftRed.tres" type="Resource" id=4]
 [ext_resource path="res://source/UI/TileVerticalList.gd" type="Script" id=5]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/Bonfire.tres" type="Resource" id=6]
 [ext_resource path="res://source/UI/ui_resources/defaultTheme.tres" type="Theme" id=7]
@@ -12,6 +13,11 @@
 [ext_resource path="res://source/resources/PlaceableObjects/Tiles/Fence.tres" type="Resource" id=11]
 [ext_resource path="res://source/resources/PlaceableObjects/Actors/Elf.tres" type="Resource" id=12]
 [ext_resource path="res://source/UI/elements/PlacementModeButton.gd" type="Script" id=13]
+[ext_resource path="res://source/resources/PlaceableObjects/Props/Logs.tres" type="Resource" id=14]
+[ext_resource path="res://source/resources/PlaceableObjects/Props/GiftGreen.tres" type="Resource" id=15]
+[ext_resource path="res://source/resources/PlaceableObjects/Props/LogSmall.tres" type="Resource" id=16]
+[ext_resource path="res://source/resources/PlaceableObjects/Props/TreeStump.tres" type="Resource" id=17]
+[ext_resource path="res://source/resources/PlaceableObjects/Props/CandyCane.tres" type="Resource" id=18]
 
 [node name="LevelUI" type="Control" groups=["LevelUI", "UI"]]
 anchor_right = 1.0
@@ -124,11 +130,11 @@ scroll_horizontal_enabled = false
 
 [node name="TileGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/TileContainer/ScrollContainer" groups=["TileList"]]
 margin_right = 52.0
-margin_bottom = 192.0
+margin_bottom = 164.0
 size_flags_horizontal = 6
 columns = 2
 script = ExtResource( 5 )
-tile_resources = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 12 ), null, null, null, null, null, null, null, null, null ]
+tile_resources = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 4 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ) ]
 
 [node name="PlacementModeButton" type="Button" parent="MarginContainer/VBoxContainer"]
 visible = false

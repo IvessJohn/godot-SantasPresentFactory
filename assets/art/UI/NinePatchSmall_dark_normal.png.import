@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/NinePatchSmall_dark.png-de25cd8533b93a4a8909182662ffebc6.stex"
+path="res://.import/NinePatchSmall_dark_normal.png-36d891f1721e2f26accabab6738dd6de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/UI/NinePatchSmall_dark.png"
-dest_files=[ "res://.import/NinePatchSmall_dark.png-de25cd8533b93a4a8909182662ffebc6.stex" ]
+source_file="res://assets/art/UI/NinePatchSmall_dark_normal.png"
+dest_files=[ "res://.import/NinePatchSmall_dark_normal.png-36d891f1721e2f26accabab6738dd6de.stex" ]
 
 [params]
 

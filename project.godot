@@ -64,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/UI/TileVerticalList.gd"
 }, {
+"base": "Sprite",
+"class": "VariableSprite",
+"language": "GDScript",
+"path": "res://source/scripts/VariableSprite.gd"
+}, {
 "base": "Actor",
 "class": "WanderingNPC",
 "language": "GDScript",
@@ -81,6 +86,7 @@ _global_script_class_icons={
 "StateMachine": "",
 "TileButton": "",
 "TileGrid": "",
+"VariableSprite": "",
 "WanderingNPC": ""
 }
 
