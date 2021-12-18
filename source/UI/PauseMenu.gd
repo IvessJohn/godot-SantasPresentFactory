@@ -32,3 +32,10 @@ func _on_ButtonQuit_pressed():
 
 func _on_ButtonScreenshots_pressed():
 	_open_screenshots()
+
+
+func _on_visibility_changed():
+	if visible:
+		SfxPlayer.play_sfx(sfx_popup)
+	else:
+		SfxPlayer.play_sfx(sfx_hide)

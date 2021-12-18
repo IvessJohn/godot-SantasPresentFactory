@@ -263,6 +263,7 @@ size_flags_horizontal = 4
 text = "Back"
 script = ExtResource( 5 )
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="PauseMenuContainer/PanelContainer/VBoxContainer/VBoxContainer/ButtonCredits" to="." method="_on_ButtonCredits_pressed"]
 [connection signal="pressed" from="PauseMenuContainer/PanelContainer/VBoxContainer/VBoxContainer/ButtonScreenshots" to="." method="_on_ButtonScreenshots_pressed"]
 [connection signal="pressed" from="PauseMenuContainer/PanelContainer/VBoxContainer/VBoxContainer/ButtonQuit" to="." method="_on_ButtonQuit_pressed"]
