@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://source/resources/PlaceableObjects/Actors/Santa.tres" type="Resource" id=25]
 [ext_resource path="res://assets/art/UI/icons/music_on.png" type="Texture" id=26]
 [ext_resource path="res://source/UI/MusicOnOffButton.gd" type="Script" id=27]
+[ext_resource path="res://assets/art/UI/icons/music_off.png" type="Texture" id=28]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -211,16 +212,18 @@ text = "SCR"
 script = ExtResource( 10 )
 
 [node name="MusicOnOffButton" type="Button" parent="MarginContainer"]
-margin_left = 608.0
+margin_left = 607.0
 margin_top = 8.0
 margin_right = 632.0
 margin_bottom = 33.0
-rect_min_size = Vector2( 24, 24 )
+rect_min_size = Vector2( 25, 25 )
 size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = ExtResource( 26 )
 expand_icon = true
 script = ExtResource( 27 )
+ICON_ON = ExtResource( 26 )
+ICON_OFF = ExtResource( 28 )
 
 [connection signal="object_chosen" from="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer/Props/ObjectGrid" to="." method="_on_ObjectGrid_object_chosen"]
 [connection signal="object_chosen" from="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer/Props/ObjectGrid" to="MarginContainer/SelectedItem" method="_update_selected_object"]
