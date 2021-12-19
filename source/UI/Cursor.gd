@@ -8,6 +8,8 @@ signal accept_removed(cell)
 signal moved(new_cell)
 
 export var grid: Resource = preload("res://source/resources/Grid.tres")
+var _selected_resource: PlaceableObjectResource = null setget set_selected_resource
+
 # Time before the cursor can move again in seconds.
 export(float) var ui_cooldown := 0.1
 
@@ -79,3 +81,9 @@ func set_is_active(value):
 	if value != is_active:
 		is_active = value
 		visible = is_active
+
+func set_selected_resource(value):
+	if _selected_resource != value:
+		_selected_resource = value
+		if _selected_resource:
+			$SelectedObjectSprite.texture = _selected_resource.texture

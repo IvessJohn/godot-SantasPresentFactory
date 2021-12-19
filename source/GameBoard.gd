@@ -72,6 +72,7 @@ func _on_Cursor_accept_removed(cell):
 func set_selected_resource(value):
 	if _selected_resource != value:
 		_selected_resource = value
+		$Cursor._selected_resource = _selected_resource
 		print("_selected_resource = " + str(_selected_resource))
 
 

@@ -7,6 +7,7 @@ onready var _gameBoard = $GameBoard
 
 
 func _ready():
+	randomize()
 	SoundtrackPlayer.play_soundtrack(SoundtrackPlayerClass.THEMES.SANDBOX)
 
 func _unhandled_input(event):

@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:modulate")
@@ -80,6 +80,7 @@ script = ExtResource( 6 )
 visible = false
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -102,7 +103,6 @@ tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -6
 [node name="SurfaceTileMap" parent="GameBoard" instance=ExtResource( 2 )]
 
 [node name="Cursor" parent="GameBoard" instance=ExtResource( 1 )]
-visible = true
 is_active = true
 
 [node name="Objects" type="YSort" parent="GameBoard"]
