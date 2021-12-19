@@ -1,6 +1,6 @@
 tool
 extends GridContainer
-class_name TileGrid
+class_name ObjectGrid
 
 # GameBoard will receive this node's 'tile_chosen' signal to access the chosen tile and be able to
 # place it on the map. Every TileButton will connect its 'tile_chosen' signal to the list's
@@ -14,8 +14,8 @@ var shown_children := []
 
 
 func _ready():
-	if not is_in_group("TileList"):
-		add_to_group("TileList")
+	if not is_in_group("ObjectGrid"):
+		add_to_group("ObjectGrid")
 	
 	if tile_resources.size() > 0:
 		choose_tile(tile_resources[0])
@@ -39,8 +39,8 @@ func set_tile_resources(value):
 			
 			x+=1
 
-func _on_tileButton_tile_chosen(tile_resource):
+func _on_tileButton_tile_chosen(tile_resource: PlaceableObjectResource):
 	choose_tile(tile_resource)
 
-func choose_tile(tile_resource):
-	emit_signal("tile_chosen", tile_resource)
+func choose_tile(tile_resource: PlaceableObjectResource):
+	emit_signal("tile_chosen")

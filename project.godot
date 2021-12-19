@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/GameBoard.gd"
 }, {
+"base": "GridContainer",
+"class": "ObjectGrid",
+"language": "GDScript",
+"path": "res://source/UI/TileVerticalList.gd"
+}, {
+"base": "TabContainer",
+"class": "ObjectSelectionTabContainer",
+"language": "GDScript",
+"path": "res://source/UI/elements/SelectionMenuTabsContainer.gd"
+}, {
 "base": "Resource",
 "class": "PlaceableObjectResource",
 "language": "GDScript",
@@ -64,11 +74,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/UI/TileButton.gd"
 }, {
-"base": "GridContainer",
-"class": "TileGrid",
-"language": "GDScript",
-"path": "res://source/UI/TileVerticalList.gd"
-}, {
 "base": "Sprite",
 "class": "VariableSprite",
 "language": "GDScript",
@@ -84,6 +89,8 @@ _global_script_class_icons={
 "ButtonWithSFX": "",
 "Cursor": "",
 "GameBoard": "",
+"ObjectGrid": "",
+"ObjectSelectionTabContainer": "",
 "PlaceableObjectResource": "",
 "PlaceableProp": "",
 "PlaceableTileResource": "",
@@ -91,7 +98,6 @@ _global_script_class_icons={
 "SFXPlayerClass": "",
 "StateMachine": "",
 "TileButton": "",
-"TileGrid": "",
 "VariableSprite": "",
 "WanderingNPC": ""
 }

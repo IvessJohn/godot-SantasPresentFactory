@@ -19,6 +19,6 @@ func _on_TileGrid_tile_chosen(tile_resource):
 #		game_board_path = value
 #		game_board = get_node(game_board_path)
 
-
-
-
+func _on_SelectionMenuTabsContainer_object_chosen(object_resource):
+	if is_instance_valid(game_board):
+		game_board._selected_resource = object_resource
