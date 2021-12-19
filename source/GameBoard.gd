@@ -7,6 +7,12 @@ const DIRECTIONS = [Vector2.LEFT, Vector2.UP, Vector2.RIGHT, Vector2.DOWN]
 
 export(Resource) var grid: Resource = preload("res://source/resources/Grid.tres")
 
+export(Dictionary) var SOUNDS := {
+	"place": null,
+	"replace": preload("res://source/SFX/replace.wav"),
+	"remove": preload("res://source/SFX/impact.wav")
+}
+
 # Each key-value pair represents an object. The key is the position, the value is the reference to
 # the object
 var _objects := {}
@@ -64,10 +70,13 @@ func _on_Cursor_moved(_new_cell):
 	pass
 
 func _on_Cursor_accept_pressed(cell):
+	SfxPlayer.play_sfx(SOUNDS["replace"])
 	place_object(cell)
 
 func _on_Cursor_accept_removed(cell):
-	remove_object(cell)
+	if is_cell_occupied(cell):
+		SfxPlayer.play_sfx(SOUNDS["remove"], get_tree().current_scene, -5)
+		remove_object(cell)
 
 func set_selected_resource(value):
 	if _selected_resource != value:
@@ -179,7 +188,6 @@ func remove_object(cell: Vector2):
 			var tilemap: TileMap = tilemaps[PlaceableTileResource.TILE_PLACEMENT.SURFACE]
 			tilemap.set_cellv(cell, -1)
 			tilemap.update_bitmask_region()
-
 
 func _can_remove_object(cell: Vector2) -> bool:
 	if _objects.has(cell) or \

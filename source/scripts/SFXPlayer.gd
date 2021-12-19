@@ -3,7 +3,7 @@ class_name SFXPlayerClass
  
  
 func play_sfx(sound: AudioStream, parent: Node = get_tree().current_scene,
-		pitch_range: Vector2 = Vector2(1.0,1.0), volume_db: float = 1.0,
+		volume_db: float = 1.0, pitch_range: Vector2 = Vector2(0.9,1.1),
 		pause_behavior = PAUSE_MODE_INHERIT):
 	if sound != null and parent != null:
 		var stream_player = AudioStreamPlayer.new()

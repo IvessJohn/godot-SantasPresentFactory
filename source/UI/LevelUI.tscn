@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://source/resources/PlaceableObjects/Props/Stool.tres" type="Resource" id=36]
 [ext_resource path="res://source/resources/PlaceableObjects/Decorations/Flower.tres" type="Resource" id=37]
 [ext_resource path="res://source/resources/PlaceableObjects/Decorations/Mistletoe.tres" type="Resource" id=38]
+[ext_resource path="res://source/resources/PlaceableObjects/Tiles/Fence.tres" type="Resource" id=39]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -57,10 +58,10 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_right = 8
-custom_constants/margin_top = 8
-custom_constants/margin_left = 8
-custom_constants/margin_bottom = 8
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -68,9 +69,9 @@ __meta__ = {
 
 [node name="SelectedItem" type="PanelContainer" parent="MarginContainer"]
 margin_left = 271.0
-margin_top = 8.0
+margin_top = 16.0
 margin_right = 368.0
-margin_bottom = 81.0
+margin_bottom = 89.0
 grow_horizontal = 2
 rect_min_size = Vector2( 73, 73 )
 mouse_filter = 2
@@ -125,9 +126,9 @@ text = "Type:"
 align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 512.0
+margin_left = 504.0
 margin_top = 99.0
-margin_right = 632.0
+margin_right = 624.0
 margin_bottom = 260.0
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -175,7 +176,7 @@ margin_bottom = 199.0
 size_flags_horizontal = 6
 columns = 3
 script = ExtResource( 5 )
-object_resources = [ ExtResource( 6 ), ExtResource( 28 ), ExtResource( 34 ), ExtResource( 18 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 37 ), ExtResource( 15 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 29 ), ExtResource( 16 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 14 ) ]
+object_resources = [ ExtResource( 6 ), ExtResource( 28 ), ExtResource( 34 ), ExtResource( 18 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 37 ), ExtResource( 39 ), ExtResource( 15 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 29 ), ExtResource( 16 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 14 ) ]
 
 [node name="Actors" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer"]
 visible = false
@@ -210,10 +211,10 @@ script = ExtResource( 13 )
 
 [node name="ScreenshotButton" type="Button" parent="MarginContainer"]
 visible = false
-margin_left = 600.0
-margin_top = 8.0
-margin_right = 632.0
-margin_bottom = 33.0
+margin_left = 592.0
+margin_top = 16.0
+margin_right = 624.0
+margin_bottom = 41.0
 rect_min_size = Vector2( 20, 20 )
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -222,10 +223,10 @@ text = "SCR"
 script = ExtResource( 10 )
 
 [node name="MusicOnOffButton" type="Button" parent="MarginContainer"]
-margin_left = 607.0
-margin_top = 8.0
-margin_right = 632.0
-margin_bottom = 33.0
+margin_left = 599.0
+margin_top = 16.0
+margin_right = 624.0
+margin_bottom = 41.0
 rect_min_size = Vector2( 25, 25 )
 size_flags_horizontal = 8
 size_flags_vertical = 0
