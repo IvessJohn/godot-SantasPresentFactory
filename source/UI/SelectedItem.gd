@@ -13,11 +13,3 @@ func _update_selected_object(value):
 		itemIcon.texture = _selected_resource.ui_icon
 		itemLabel.text = _selected_resource.name
 		typeLabel.text = _selected_resource.get_type_in_string()
-
-
-func _on_TileVerticalList_tile_chosen(object_resource):
-	_update_selected_object(object_resource)
-
-
-func _on_ObjectGrid_object_chosen(object_resource):
-	pass # Replace with function body.

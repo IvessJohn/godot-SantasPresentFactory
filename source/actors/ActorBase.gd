@@ -18,7 +18,7 @@ func _move():
 	velocity = move_and_slide(velocity)
 
 
-func _on_InteractionArea_input_event(viewport, event, shape_idx):
+func _on_InteractionArea_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			emit_signal("clicked")

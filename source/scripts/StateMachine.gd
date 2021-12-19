@@ -16,17 +16,17 @@ func _physics_process(delta):
 		if transition != null:
 			set_state(transition)
 
-func _state_logic(delta):
+func _state_logic(_delta):
 	pass
 
 # This method returns the state the parent should switch to, if he needs to at all
-func _get_transition(delta):
+func _get_transition(_delta):
 	return null
 
-func _exit_state(old_state, new_state):
+func _exit_state(_old_state, _new_state):
 	pass
 
-func _enter_state(new_state, old_state):
+func _enter_state(_new_state, _old_state):
 	pass
 
 func set_state(new_state):

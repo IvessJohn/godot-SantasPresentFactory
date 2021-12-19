@@ -60,7 +60,7 @@ func _flood_fill(category: String) -> Array:
 	
 	return cells
 
-func _on_Cursor_moved(new_cell):
+func _on_Cursor_moved(_new_cell):
 	pass
 
 func _on_Cursor_accept_pressed(cell):

@@ -111,7 +111,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Santa's Village Builder"
-run/main_scene="res://source/level/TestLevel.tscn"
+run/main_scene="res://source/level/LevelBase.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Santa's Village Builder"
 config/icon="res://icon.png"

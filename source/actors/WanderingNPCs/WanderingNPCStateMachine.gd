@@ -6,7 +6,7 @@ func _ready():
 	call_deferred("set_state", states.idle)
 #	call_deferred("set_state", states.move)
 
-func _state_logic(delta):
+func _state_logic(_delta):
 	match state:
 		states.idle:
 			parent.velocity = Vector2.ZERO
@@ -17,7 +17,7 @@ func _state_logic(delta):
 	
 	parent._move()
 
-func _get_transition(delta):
+func _get_transition(_delta):
 	match state:
 		states.idle:
 			if parent.should_wander():
@@ -26,10 +26,10 @@ func _get_transition(delta):
 			if parent.should_idle():
 				return states.idle
 
-func _exit_state(old_state, new_state):
+func _exit_state(_old_state, _new_state):
 	pass
 
-func _enter_state(new_state, old_state):
+func _enter_state(new_state, _old_state):
 	match new_state:
 		states.idle:
 			parent.idleTimer.start(parent.get_idleTimer_new_duration())
