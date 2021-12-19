@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://source/resources/PlaceableObjects/Actors/Gnome.tres" type="Resource" id=23]
 [ext_resource path="res://source/resources/PlaceableObjects/Actors/Gingerbread.tres" type="Resource" id=24]
 [ext_resource path="res://source/resources/PlaceableObjects/Actors/Santa.tres" type="Resource" id=25]
+[ext_resource path="res://assets/art/UI/icons/music_on.png" type="Texture" id=26]
+[ext_resource path="res://source/UI/MusicOnOffButton.gd" type="Script" id=27]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -33,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 320, 180 )
 mouse_filter = 2
+theme = ExtResource( 7 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true,
@@ -196,10 +199,10 @@ script = ExtResource( 13 )
 
 [node name="ScreenshotButton" type="Button" parent="MarginContainer"]
 visible = false
-margin_left = 597.0
+margin_left = 600.0
 margin_top = 8.0
 margin_right = 632.0
-margin_bottom = 28.0
+margin_bottom = 33.0
 rect_min_size = Vector2( 20, 20 )
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -207,8 +210,21 @@ disabled = true
 text = "SCR"
 script = ExtResource( 10 )
 
+[node name="MusicOnOffButton" type="Button" parent="MarginContainer"]
+margin_left = 608.0
+margin_top = 8.0
+margin_right = 632.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 24, 24 )
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource( 26 )
+expand_icon = true
+script = ExtResource( 27 )
+
 [connection signal="object_chosen" from="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer/Props/ObjectGrid" to="." method="_on_ObjectGrid_object_chosen"]
 [connection signal="object_chosen" from="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer/Props/ObjectGrid" to="MarginContainer/SelectedItem" method="_update_selected_object"]
 [connection signal="object_chosen" from="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer/Actors/ObjectGrid" to="." method="_on_ObjectGrid_object_chosen"]
 [connection signal="object_chosen" from="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer/Actors/ObjectGrid" to="MarginContainer/SelectedItem" method="_update_selected_object"]
 [connection signal="pressed" from="MarginContainer/ScreenshotButton" to="MarginContainer/ScreenshotButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/MusicOnOffButton" to="MarginContainer/MusicOnOffButton" method="_on_MusicOnOffButton_pressed"]
