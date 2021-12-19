@@ -17,7 +17,9 @@ export(Dictionary) var SOUNDS := {
 # the object
 var _objects := {}
 var _props := {}
+var _decorations := {}
 var _actors := []
+var _tiles := []
 
 var _selected_resource: PlaceableObjectResource = null setget set_selected_resource
 
@@ -95,9 +97,10 @@ func place_object(cell: Vector2):
 	if can_place_object(cell, _selected_resource):
 		# Placing the object
 		match _selected_resource.type:
-			PlaceableObjectResource.OBJECT_TYPES.PROP, \
-			PlaceableObjectResource.OBJECT_TYPES.DECORATION:
+			PlaceableObjectResource.OBJECT_TYPES.PROP:
 				_place_prop(cell, _selected_resource)
+			PlaceableObjectResource.OBJECT_TYPES.DECORATION:
+				_place_decoration(cell, _selected_resource)
 			PlaceableObjectResource.OBJECT_TYPES.ACTOR:
 				_place_actor(cell, _selected_resource)
 			PlaceableObjectResource.OBJECT_TYPES.TILE:
@@ -114,14 +117,13 @@ func can_place_object(cell, object_resource) -> bool:
 		return false
 	
 	match object_resource.type:
-		PlaceableObjectResource.OBJECT_TYPES.PROP:
-			return object_resource.scene != null
-		PlaceableObjectResource.OBJECT_TYPES.ACTOR:
-			return not _objects.has(cell)
-		PlaceableObjectResource.OBJECT_TYPES.TILE:
-			return true
+		PlaceableObjectResource.OBJECT_TYPES.PROP, \
 		PlaceableObjectResource.OBJECT_TYPES.DECORATION:
 			return object_resource.scene != null
+		PlaceableObjectResource.OBJECT_TYPES.ACTOR:
+			return (not _props.has(cell) and not _tiles.has(cell))
+		PlaceableObjectResource.OBJECT_TYPES.TILE:
+			return true
 		PlaceableObjectResource.OBJECT_TYPES.BUILDING:
 			return false
 	
@@ -137,7 +139,7 @@ func _place_prop(cell, _prop_resource: PlaceableObjectResource):
 	# If there is another tile/object at this position, remove it
 	remove_object(cell)
 	
-	var object_scene: PackedScene = _selected_resource.scene
+	var object_scene: PackedScene = _prop_resource.scene
 	var object_instance: Node2D = object_scene.instance()
 	objects.add_child(object_instance)
 	
@@ -148,8 +150,23 @@ func _place_prop(cell, _prop_resource: PlaceableObjectResource):
 	_objects[cell] = object_instance
 	_props[cell] = object_instance
 
+func _place_decoration(cell, _decor_resource: PlaceableObjectResource):
+	# If there is another tile/object at this position, remove it
+	remove_object(cell)
+	
+	var object_scene: PackedScene = _decor_resource.scene
+	var object_instance: Node2D = object_scene.instance()
+	objects.add_child(object_instance)
+	
+#	print((cell))
+	var object_pos: Vector2 = grid.calculate_map_position(cell)
+	object_instance.global_position = object_pos
+	
+	_objects[cell] = object_instance
+	_decorations[cell] = object_instance
+
 func _place_actor(cell, _actor_resource: PlaceableObjectResource):
-	var actor_scene: PackedScene = _selected_resource.scene
+	var actor_scene: PackedScene = _actor_resource.scene
 	var actor_instance: Node2D = actor_scene.instance()
 	objects.add_child(actor_instance)
 	
@@ -164,6 +181,8 @@ func _place_tile(cell, _tile_resource: PlaceableTileResource):
 	var tilemap: TileMap = tilemaps[_tile_resource.tile_placement]
 	# If there is another tile/object at this position, remove it
 	remove_object(cell)
+	
+	_tiles.append(cell)
 	
 	var tile_id: int = _tile_resource.tile_id
 	tilemap.set_cellv(cell, tile_id)
@@ -183,6 +202,10 @@ func remove_object(cell: Vector2):
 			_objects.erase(cell)
 			if _props.has(cell):
 				_props.erase(cell)
+			elif _decorations.has(cell):
+				_props.erase(cell)
+			elif _tiles.has(cell):
+				_tiles.erase(cell)
 		
 		elif tilemaps[PlaceableTileResource.TILE_PLACEMENT.SURFACE].get_cellv(cell) != TileMap.INVALID_CELL:
 			var tilemap: TileMap = tilemaps[PlaceableTileResource.TILE_PLACEMENT.SURFACE]

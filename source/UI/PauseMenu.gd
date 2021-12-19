@@ -9,7 +9,7 @@ export(AudioStream) var sfx_hide: AudioStream = null
 
 func _open_credits():
 	credits.show()
-	main.hide()
+#	main.hide()
 
 func _return_to_main():
 	main.show()
