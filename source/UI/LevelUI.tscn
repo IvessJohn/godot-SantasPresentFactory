@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://source/UI/LevelUI.gd" type="Script" id=1]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/ChristmasTree.tres" type="Resource" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://source/resources/PlaceableObjects/Props/Candle.tres" type="Resource" id=34]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/Rock.tres" type="Resource" id=35]
 [ext_resource path="res://source/resources/PlaceableObjects/Props/Stool.tres" type="Resource" id=36]
+[ext_resource path="res://source/resources/PlaceableObjects/Decorations/Flower.tres" type="Resource" id=37]
+[ext_resource path="res://source/resources/PlaceableObjects/Decorations/Mistletoe.tres" type="Resource" id=38]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -169,11 +171,11 @@ __meta__ = {
 [node name="ObjectGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer/Props" groups=["ObjectGrid"]]
 margin_left = 1.0
 margin_right = 81.0
-margin_bottom = 170.0
+margin_bottom = 199.0
 size_flags_horizontal = 6
 columns = 3
 script = ExtResource( 5 )
-object_resources = [ ExtResource( 6 ), ExtResource( 28 ), ExtResource( 34 ), ExtResource( 18 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 15 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 29 ), ExtResource( 16 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 14 ) ]
+object_resources = [ ExtResource( 6 ), ExtResource( 28 ), ExtResource( 34 ), ExtResource( 18 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 37 ), ExtResource( 15 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 29 ), ExtResource( 16 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 36 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 14 ) ]
 
 [node name="Actors" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer"]
 visible = false

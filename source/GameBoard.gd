@@ -86,7 +86,8 @@ func place_object(cell: Vector2):
 	if can_place_object(cell, _selected_resource):
 		# Placing the object
 		match _selected_resource.type:
-			PlaceableObjectResource.OBJECT_TYPES.PROP:
+			PlaceableObjectResource.OBJECT_TYPES.PROP, \
+			PlaceableObjectResource.OBJECT_TYPES.DECORATION:
 				_place_prop(cell, _selected_resource)
 			PlaceableObjectResource.OBJECT_TYPES.ACTOR:
 				_place_actor(cell, _selected_resource)
@@ -110,6 +111,8 @@ func can_place_object(cell, object_resource) -> bool:
 			return not _objects.has(cell)
 		PlaceableObjectResource.OBJECT_TYPES.TILE:
 			return true
+		PlaceableObjectResource.OBJECT_TYPES.DECORATION:
+			return object_resource.scene != null
 		PlaceableObjectResource.OBJECT_TYPES.BUILDING:
 			return false
 	
