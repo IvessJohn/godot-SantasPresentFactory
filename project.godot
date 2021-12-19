@@ -82,7 +82,7 @@ _global_script_classes=[ {
 "base": "Actor",
 "class": "WanderingNPC",
 "language": "GDScript",
-"path": "res://source/actors/WanderingNPC.gd"
+"path": "res://source/actors/WanderingNPCs/WanderingNPC.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",

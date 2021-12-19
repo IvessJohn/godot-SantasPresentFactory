@@ -1,11 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://source/actors/WanderingNPC.tscn" type="PackedScene" id=1]
+[ext_resource path="res://source/actors/WanderingNPCs/WanderingNPC.tscn" type="PackedScene" id=1]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="ElfNPC" instance=ExtResource( 1 )]
-position = Vector2( 153, 66 )
 
 [node name="AnimationTree" parent="." index="3"]
 parameters/playback = SubResource( 1 )
