@@ -39,7 +39,7 @@ func set_object_resources(value):
 		for o in object_resources:
 			var button: TileButton = TileButton.new()
 			button.name = "TileButton" + str(x)
-			button.tile_resource = o
+			button. = o
 			button.connect("tile_chosen", self, "_on_tileButton_tile_chosen")
 			
 			var parent_grid: GridContainer = _get_respective_grid_for(o)

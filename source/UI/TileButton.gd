@@ -1,34 +1,34 @@
 tool
 extends Button
-class_name TileButton
+class_name ObjectButton
 
-signal tile_chosen(tile_resource)
+signal object_chosen(object_resource)
 
 
-export(Resource) var tile_resource: Resource setget set_tile_resource
+export(Resource) var object_resource: Resource setget set_object_resource
 
 
 func _ready():
 	rect_min_size = Vector2(24, 24)
 	expand_icon = true
-	# Will emit the signal 'tile_chosen' when pressed
+	# Will emit the signal 'object_chosen' when pressed
 	connect("pressed", self, "on_pressed")
 	
-	if not is_in_group("TileButton"):
-		add_to_group("TileButton")
+	if not is_in_group("ObjectButton"):
+		add_to_group("ObjectButton")
 	
-	if tile_resource:
-		hint_tooltip = tile_resource.name + "\r\n" + tile_resource.get_type_in_string() 
+	if object_resource:
+		hint_tooltip = object_resource.name + "\r\n" + object_resource.get_type_in_string() 
 
-func set_tile_resource(value: Resource):
-	if tile_resource != value:
-		tile_resource = value
-		icon = tile_resource.ui_icon
-#		text = tile_resource.name
+func set_object_resource(value: Resource):
+	if object_resource != value:
+		object_resource = value
+		icon = object_resource.ui_icon
+#		text = object_resource.name
 	elif value == null:
-		tile_resource = value
+		object_resource = value
 		icon = null
 
-# Emits the signal 'tile_chosen', so respective nodes can have the access to the new chosen tile
+# Emits the signal 'object_chosen', so respective nodes can have the access to the new chosen object
 func on_pressed():
-	emit_signal("tile_chosen", tile_resource)
+	emit_signal("object_chosen", object_resource)

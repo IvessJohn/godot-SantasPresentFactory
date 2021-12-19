@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/GameBoard.gd"
 }, {
+"base": "Button",
+"class": "ObjectButton",
+"language": "GDScript",
+"path": "res://source/UI/TileButton.gd"
+}, {
 "base": "GridContainer",
 "class": "ObjectGrid",
 "language": "GDScript",
@@ -69,11 +74,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/scripts/StateMachine.gd"
 }, {
-"base": "Button",
-"class": "TileButton",
-"language": "GDScript",
-"path": "res://source/UI/TileButton.gd"
-}, {
 "base": "Sprite",
 "class": "VariableSprite",
 "language": "GDScript",
@@ -89,6 +89,7 @@ _global_script_class_icons={
 "ButtonWithSFX": "",
 "Cursor": "",
 "GameBoard": "",
+"ObjectButton": "",
 "ObjectGrid": "",
 "ObjectSelectionTabContainer": "",
 "PlaceableObjectResource": "",
@@ -97,7 +98,6 @@ _global_script_class_icons={
 "Player": "",
 "SFXPlayerClass": "",
 "StateMachine": "",
-"TileButton": "",
 "VariableSprite": "",
 "WanderingNPC": ""
 }
