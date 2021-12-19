@@ -7,7 +7,6 @@ func _ready():
 	variate_texture()
 
 func variate_texture():
-	pass
 	# Separate files approach
 	if TEXTURE_VARIATIONS_ARRAY.size() > 1:
 		var texture_id: int = randi() % TEXTURE_VARIATIONS_ARRAY.size()

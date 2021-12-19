@@ -1,0 +1,19 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/art/Fantasy RPG snow pack/Tileset/100%/Flower_3.png" type="Texture" id=1]
+[ext_resource path="res://source/objects/Props/PlaceableProp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/art/Fantasy RPG snow pack/Tileset/100%/Flower_5.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/Fantasy RPG snow pack/Tileset/100%/Flower_4.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/Fantasy RPG snow pack/Tileset/100%/Flower_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/Fantasy RPG snow pack/Tileset/100%/Flower_1.png" type="Texture" id=6]
+
+[node name="Flower" instance=ExtResource( 2 )]
+
+[node name="VariableSprite" parent="." index="0"]
+position = Vector2( 0, -3 )
+texture = ExtResource( 6 )
+TEXTURE_VARIATIONS_ARRAY = [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ]
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, 0 )
+disabled = true
