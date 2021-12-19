@@ -6,6 +6,9 @@ onready var _pauseMenu = $CanvasLayer/PauseMenu
 onready var _gameBoard = $GameBoard
 
 
+func _ready():
+	SoundtrackPlayer.play_soundtrack(SoundtrackPlayerClass.THEMES.SANDBOX)
+
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_pause"):
 		if not _pauseMenu.visible:
@@ -16,5 +19,4 @@ func _unhandled_input(event):
 			_pauseMenu.hide()
 			_levelUI.show()
 			_gameBoard.wake_up()
-
 
