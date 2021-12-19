@@ -58,6 +58,7 @@ margin_top = 8.0
 margin_right = 368.0
 margin_bottom = 81.0
 grow_horizontal = 2
+rect_min_size = Vector2( 73, 73 )
 mouse_filter = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -176,7 +177,7 @@ __meta__ = {
 [node name="ObjectGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/TileContainer/SelectionMenuTabsContainer/Actors" groups=["ObjectGrid"]]
 margin_left = 7.0
 margin_right = 87.0
-margin_bottom = 25.0
+margin_bottom = 54.0
 size_flags_horizontal = 6
 columns = 3
 script = ExtResource( 5 )
