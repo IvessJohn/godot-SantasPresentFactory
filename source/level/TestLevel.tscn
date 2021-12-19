@@ -38,6 +38,8 @@ is_active = true
 
 [node name="Objects" type="YSort" parent="GameBoard"]
 
+[node name="Effects" type="YSort" parent="GameBoard"]
+
 [node name="LevelBorders" type="StaticBody2D" parent="GameBoard"]
 collision_mask = 0
 

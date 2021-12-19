@@ -1,6 +1,8 @@
 extends YSort
 class_name GameBoard
 
+export(PackedScene) var PLACEMENT_PARTICLES: PackedScene = preload("res://source/FX/ObjectPlacementParticles.tscn")
+
 const DIRECTIONS = [Vector2.LEFT, Vector2.UP, Vector2.RIGHT, Vector2.DOWN]
 
 export(Resource) var grid: Resource = preload("res://source/resources/Grid.tres")
@@ -11,7 +13,7 @@ var _objects := {}
 var _props := {}
 var _actors := []
 
-var _selected_resource: Resource = null setget set_selected_resource
+var _selected_resource: PlaceableObjectResource = null setget set_selected_resource
 
 onready var _placement_overlay
 onready var tilemaps := {
@@ -19,6 +21,7 @@ onready var tilemaps := {
 	PlaceableTileResource.TILE_PLACEMENT.SURFACE: $SurfaceTileMap
 }
 onready var objects := $Objects
+onready var effects := $Effects
 
 
 func sleep():
@@ -80,6 +83,7 @@ func set_selected_resource(value):
 func place_object(cell: Vector2):
 #	print(can_place_object(cell, _selected_resource))
 	if can_place_object(cell, _selected_resource):
+		# Placing the object
 		match _selected_resource.type:
 			PlaceableObjectResource.OBJECT_TYPES.PROP:
 				_place_prop(cell, _selected_resource)
@@ -87,6 +91,12 @@ func place_object(cell: Vector2):
 				_place_actor(cell, _selected_resource)
 			PlaceableObjectResource.OBJECT_TYPES.TILE:
 				_place_tile(cell, _selected_resource)
+		
+		# FX part
+		var particles: CPUParticles2D = PLACEMENT_PARTICLES.instance()
+		particles.texture = _selected_resource.ui_icon
+		particles.position = grid.calculate_map_position(cell)
+		objects.add_child(particles)
 
 func can_place_object(cell, object_resource) -> bool:
 	if not object_resource:

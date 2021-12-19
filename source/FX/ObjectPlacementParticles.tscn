@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/art/Fantasy RPG snow pack/Objects/100%/BonfireIcon.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.730769, 0.836538 )
+colors = PoolColorArray( 0.771919, 0.888478, 0.932129, 1, 0.68092, 0.846191, 0.846191, 0.482353, 0.671003, 0.846191, 0.83644, 0 )
+
+[node name="ObjectPlacementParticles" type="CPUParticles2D"]
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource( 1 )
+direction = Vector2( 0, -1 )
+spread = 60.0
+initial_velocity = 30.0
+initial_velocity_random = 0.65
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_random = 0.25
+color_ramp = SubResource( 1 )
+
+[node name="AutoFreeTimer" type="Timer" parent="."]
+
+[connection signal="ready" from="." to="." method="set_emitting" binds= [ true ]]
+[connection signal="timeout" from="AutoFreeTimer" to="." method="queue_free"]

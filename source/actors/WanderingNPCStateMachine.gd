@@ -40,10 +40,4 @@ func _enter_state(new_state, old_state):
 			
 			var deg = rand_range(0, 360)
 			parent.wanderRayCast.rotation_degrees = deg
-			var attempts := 1
-			while parent.wanderRayCast.is_colliding() or attempts <= 10:
-				deg = rand_range(0, 360)
-				parent.wanderRayCast.rotation_degrees = deg
-				attempts += 1
-			
 			parent.wander_direction = Vector2.RIGHT.rotated(deg2rad(deg))
