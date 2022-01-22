@@ -7,3 +7,5 @@
 See the game ratings [here](https://itch.io/jam/godot-wild-jam-40/rate/1323103)
 
 ![Santa's Village Builder cover image](https://img.itch.zone/aW1nLzc3MDc3MjUucG5n/315x250%23c/2AXJoQ.png)
+
+![Some funny gameplay](https://img.itch.zone/aW1hZ2UvMTMyMzEwMy83NzA3OTY4LmdpZg==/original/qirJdd.gif)
