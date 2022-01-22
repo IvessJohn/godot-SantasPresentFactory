@@ -12,6 +12,9 @@ func _state_logic(_delta):
 			parent.velocity = Vector2.ZERO
 		states.move:
 			parent.velocity = parent.SPEED * parent.wander_direction
+			
+			
+			
 			parent.animTree.set("parameters/idle/blend_position", parent.wander_direction)
 			parent.animTree.set("parameters/move/blend_position", parent.wander_direction)
 	
